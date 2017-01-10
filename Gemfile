@@ -30,6 +30,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'simplecov'
   gem 'rspec-retry'
+  gem 'capybara'
 end
 
 group :development do

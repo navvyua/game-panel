@@ -270,6 +270,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootstrap (~> 4.0.0.alpha6)
   capistrano-rails
+  capybara
   carrierwave
   coffee-rails (~> 4.2)
   database_cleaner

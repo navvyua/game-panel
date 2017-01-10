@@ -24,6 +24,12 @@ group :development, :test do
   gem 'pry'
   gem 'awesome_print'
   gem 'rubocop'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'poltergeist'
+  gem 'rspec-rails'
+  gem 'simplecov'
+  gem 'rspec-retry'
 end
 
 group :development do

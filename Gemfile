@@ -7,6 +7,7 @@ gem 'carrierwave'
 gem 'simple_form'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'slim-rails'
+gem 'font-awesome-rails'
 
 gem 'rails', '~> 5.0.1'
 gem 'pg', '~> 0.18'

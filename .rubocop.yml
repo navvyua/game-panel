@@ -8,8 +8,6 @@ AllCops:
     - 'log/**/*'
     - 'Gemfile'
     - 'spec/support/**/*'
-Metrics/LineLength:
-  Enabled: false
 Style/Documentation:
   Enabled: false
 Style/ClassAndModuleChildren:
@@ -18,3 +16,12 @@ Style/MutableConstant:
   Enabled: false
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+MethodLength:
+  Max: 12
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes

@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 
 ruby '2.3.1'
 
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
+gem 'omniauth'
 gem 'will_paginate'
 gem 'carrierwave'
 gem 'simple_form'

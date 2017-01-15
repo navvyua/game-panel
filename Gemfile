@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.3.1'
 
+gem 'figaro'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'omniauth'
@@ -35,6 +36,7 @@ group :development, :test do
   gem 'simplecov'
   gem 'rspec-retry'
   gem 'capybara'
+  gem 'faker'
 end
 
 group :development do

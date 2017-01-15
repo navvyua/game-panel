@@ -13,5 +13,3 @@ module GamePanel
     # -- all .rb files in that directory are automatically loaded.
   end
 end
-
-Rails.application.secrets.each { |key, value| ENV[key.to_s] ||= value }

@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to login_path
+    redirect_to sign_in_path
   end
 
   private
@@ -23,8 +23,6 @@ class SessionsController < ApplicationController
     user = User.find_or_create_by(email: auth_params['info']['email']) do |u|
       u.password = password
       u.password_confirmation = password
-      # FOR DVELOPMENT saves decrypted password in DB
-      u.password_decrypted = password
     end
     { user: user }
   end

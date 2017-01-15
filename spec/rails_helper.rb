@@ -20,10 +20,10 @@ Capybara.register_driver :poltergeist do |app|
 end
 
 RSpec.configure do |config|
+  config.include AuthenticationHelper
   config.use_transactional_fixtures = false
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
-
   config.include FactoryGirl::Syntax::Methods
   config.default_retry_count = 3
   config.verbose_retry = true
@@ -49,3 +49,5 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 end
+
+OmniAuth.config.test_mode = true

@@ -3,6 +3,5 @@ class User < ApplicationRecord
 
   has_many :accounts, dependent: :delete_all
 
-  validates_presence_of :email
-  validates :email, uniqueness: true
+  validates :email, presence: true, uniqueness: true
 end

@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :unauthenticated_only, only: [:new, :create]
+  before_action :authenticated_only, only: :show
+
   def show
     @user = User.find(params[:id])
   end

@@ -1,14 +1,11 @@
 doctype html
 html lang='en'
   head
-    title Game panel
+    title GP - Authentication
     meta name='viewport' content='width=device-width, initial-scale=1.0'
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = csrf_meta_tags
 
-  body.hold-transition.skin-blue.sidebar-mini.fixed
-    .wrapper
-      = render 'shared/header'
-      = render 'shared/sidebar'
-      = yield
+  body.hold-transition.login-page
+    = yield

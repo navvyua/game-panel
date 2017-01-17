@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  layout 'authentication'
+
   before_action :unauthenticated_only, only: [:new, :create]
   before_action :authenticated_only, only: :destroy
 
@@ -35,7 +37,7 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to user
+      redirect_to profile_user_path(user)
     else
       render :new
     end
@@ -45,6 +47,6 @@ class SessionsController < ApplicationController
     account = Account.find_by(account_params)
     account = Account.create(account_params.merge(user_params)) unless account
     session[:user_id] = account.user_id
-    redirect_to account.user
+    redirect_to profile_user_path(account.user)
   end
 end

@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.3.1'
 
+gem 'adminlte2assets-rails', git: 'https://github.com/wendrowycz/adminlte2assets-rails', branch: 'develop'
 gem 'figaro'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
@@ -9,7 +10,6 @@ gem 'omniauth'
 gem 'will_paginate'
 gem 'carrierwave'
 gem 'simple_form'
-gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'slim-rails'
 gem 'font-awesome-rails'
 

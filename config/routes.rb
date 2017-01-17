@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/auth/failure', to: redirect('sign_in')
 
-  resources :users, except: [:index, :new, :destroy]
+  resources :users, except: [:index, :show, :new, :destroy] do
+    get 'profile', to: 'users#show', on: :member
+  end
 end

@@ -1,17 +1,53 @@
-nav.navbar.navbar-toggleable-sm.navbar-inverse
+header.main-header
+  = link_to root_path, class: 'logo' do
+    span.logo-mini
+      b G
+      | P
 
-  button.navbar-toggler type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'
-    span.navbar-toggler-icon
-    
-  .collapse.navbar-collapse id='navbarNav'
-    
-    h1.navbar-brand.mb-0 GP
-    
-    ul.navbar-nav
-      li.nav-item
-        a.nav-link href='#' News
-        
-      li.nav-item
-        a.nav-link href='#' Characters
-        
-    button.btn.btn-link.btn-header-auth.float-right Login or Sign Up
+    span.logo-lg
+      b GAME
+      | PANEL
+      
+  nav.navbar.navbar-static-top
+    a.sidebar-toggle href='#' data-toggle='offcanvas' role='button'
+      span.sr-only Toggle navigation
+      span.icon-bar
+      span.icon-bar
+      span.icon-bar
+      
+    .navbar-custom-menu
+      - if current_user
+        ul.nav.navbar-nav
+          li.dropdown.user.user-menu
+            a.dropdown-toggle href='#' data-toggle='dropdown'
+              / avatar
+              span.hidden-xs = fa_icon 'angle-down', right: true, text: current_user.name
+              
+            ul.dropdown-menu
+              li.user-header
+                / avatar
+                
+                p
+                  / #{current_user.name} - #{current_user.role}
+                  small Signed up #{current_user.created_at.strftime('%d %b. %Y')}
+                  
+              li.user-body
+                .row
+                  .col-xs-4.text-center
+                    | Some info
+                
+                  .col-xs-4.text-center
+                    | Some info
+                
+                  .col-xs-4.text-center
+                    | Some info
+                    
+              li.user-footer
+                .row
+                  .col-xs-12
+                    .btn-group
+                      = link_to 'Profile', profile_user_path(current_user), class: 'btn btn-default btn-flat'
+                      = link_to fa_icon('cog', text: 'Setting'), nil, class: 'btn btn-default btn-flat'
+                      = link_to fa_icon('sign-out', text: 'Sign Out', right: true), sign_out_path,
+                                method: :delete, class: 'btn btn-default btn-flat'
+                  .col-xs-12

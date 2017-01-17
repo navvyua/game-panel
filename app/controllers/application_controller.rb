@@ -14,6 +14,6 @@ class ApplicationController < ActionController::Base
   end
 
   def unauthenticated_only
-    redirect_back(fallback_location: current_user) if current_user
+    redirect_back(fallback_location: profile_user_path(current_user)) if current_user
   end
 end

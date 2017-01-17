@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# rubocop:disable Metrics/BlockLength
 feature 'Default authentication' do
   let(:user)             { create(:user) }
   let(:new_user)         { build(:user) }

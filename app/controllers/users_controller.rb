@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  layout 'authentication', only: :new
+
   before_action :unauthenticated_only, only: [:new, :create]
   before_action :authenticated_only, only: :show
 
@@ -15,7 +17,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to @user
+      redirect_to profile_user_path(@user)
     else
       render :new
     end

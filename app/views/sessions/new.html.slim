@@ -1,14 +1,29 @@
-h1 Sign In
-
-= form_tag sign_in_path do
-  p
-    = label_tag :email
-    = email_field_tag :email, nil, required: true
-  p
-    = label_tag :password
-    = password_field_tag :password, nil, required: true
-  p = submit_tag 'Sign In'
+.login-box
+  .login-logo
+    = render 'shared/auth_logo'
   
-p = link_to 'Sign In via Facebook', '/auth/facebook'
-p = link_to 'Sign In via Google+', '/auth/google_oauth2'
-p = link_to 'Sign Up', sign_up_path
+  .login-box-body
+    p.login-box-msg Sign In
+    
+    = form_tag sign_in_path do
+      .form-group.has-feedback
+        = email_field_tag :email, nil, required: true, class: 'form-control', placeholder: 'Email'
+        = fa_icon 'envelope-o', class: 'form-control-feedback fa-lg'
+        
+      .form-group.has-feedback
+        = password_field_tag :password, nil, required: true, class: 'form-control', placeholder: 'Password'
+        = fa_icon 'lock', class: 'form-control-feedback fa-lg'
+      
+      .row
+        .col-xs-12
+          = submit_tag 'Sign In', class: 'btn btn-primary btn-block btn-flat'
+          
+    .social-auth-links.text-center
+      p or
+      
+      = link_to fa_icon('facebook', text: 'Sign In using Facebook'), '/auth/facebook',
+                class: 'btn btn-block btn-social btn-facebook btn-flat'
+      = link_to fa_icon('google-plus', text: 'Sign In using Google'), '/auth/google_oauth2',
+                class: 'btn btn-block btn-social btn-google btn-flat'
+                
+    .text-center = link_to 'Don\'t have an account? Sign Up here.', sign_up_path

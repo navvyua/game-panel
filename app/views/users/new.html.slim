@@ -1,11 +1,35 @@
-h1 Sign Up
-
-= simple_form_for @user do |f|
-  = f.input :email
-  = f.input :password, required: true
-  = f.input :password_confirmation, required: true
-  = f.button :submit, 'Sign Up'
-
-  p = link_to 'Sign Up via Facebook', '/auth/facebook'
-  p = link_to 'Sign Up via Google+', '/auth/google_oauth2'
-  p = link_to 'Sign In', sign_in_path
+.login-box
+  .login-logo
+    = render 'shared/auth_logo'
+  
+  .login-box-body
+    p.login-box-msg Sign Up
+    
+    = simple_form_for @user do |f|
+      .form-group.has-feedback
+        = f.input :email, label: false, placeholder: 'Email', input_html: { class: 'form-control' }
+        = fa_icon 'envelope-o', class: 'form-control-feedback fa-lg'
+        
+      .form-group.has-feedback
+        = f.input :password, required: true, label: false, placeholder: 'Password',
+                  input_html: { class: 'form-control' }
+        = fa_icon 'lock', class: 'form-control-feedback fa-lg'
+        
+      .form-group.has-feedback
+        = f.input :password_confirmation, required: true, label: false, placeholder: 'Password confirmation',
+                  input_html: { class: 'form-control' }
+        = fa_icon 'repeat', class: 'form-control-feedback fa-lg'
+      
+      .row
+        .col-xs-12
+          = f.button :submit, 'Sign Up', class: 'btn btn-primary btn-block btn-flat'
+          
+    .social-auth-links.text-center
+      p or
+      
+      = link_to fa_icon('facebook', text: 'Sign Up using Facebook'), '/auth/facebook',
+                class: 'btn btn-block btn-social btn-facebook btn-flat'
+      = link_to fa_icon('google-plus', text: 'Sign Up using Google'), '/auth/google_oauth2',
+                class: 'btn btn-block btn-social btn-google btn-flat'
+                
+    .text-center = link_to 'Already have an account? Sign In here.', sign_in_path

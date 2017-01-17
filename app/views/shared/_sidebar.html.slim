@@ -1,0 +1,71 @@
+aside.main-sidebar
+  section.sidebar
+    ul.sidebar-menu
+      li = link_to fa_icon('newspaper-o', text: 'News')
+      
+      - if current_user
+        li.treeview
+          a href='#'
+            = fa_icon 'users', text: 'Characters'
+            span.pull-right-container = fa_icon 'angle-down', class: 'pull-right'
+            
+          ul.treeview-menu
+            li = link_to fa_icon('user-plus', text: 'Create character')
+            li = link_to fa_icon('male', text: 'My characters')
+            
+        li.treeview
+          a href='#'
+            = fa_icon 'info', text: 'Help center'
+            span.pull-right-container = fa_icon 'angle-down', class: 'pull-right'
+            
+          ul.treeview-menu
+            li = link_to fa_icon('plus', text: 'Create help ticket')
+            li = link_to fa_icon('list', text: 'My help tickets')
+            / - if any helper is avaliable to chat
+            li = link_to fa_icon('circle-o', text: 'Ask online', class: 'text-green')
+            / - else
+            li = link_to fa_icon('circle-o', text: 'Ask online not avaliable', class: 'text-red')
+            
+        li.treeview
+          a href='#'
+            = fa_icon 'bug', text: 'Bugtracker'
+            span.pull-right-container = fa_icon 'angle-down', class: 'pull-right'
+            
+          ul.treeview-menu
+            li = link_to fa_icon('plus', text: 'Create bug ticket')
+            li = link_to fa_icon('list', text: 'My bug tickets')
+            
+      / helper or admin only
+      / li.header #{current_user.role.upcase} PANEL
+      
+      li 
+        = link_to nil do
+          = fa_icon('users', text: 'Characters validation')
+          span.pull-right-container
+            small.label.pull-right.bg-blue 3
+            
+      li 
+        = link_to nil do
+          = fa_icon('info', text: 'Help requests')
+          span.pull-right-container
+            small.label.pull-right.bg-yellow 5
+            
+      li 
+        = link_to nil do
+          = fa_icon('flag', text: 'User reports')
+          span.pull-right-container
+            small.label.pull-right.bg-red 8
+            
+      / admin only
+      
+      li.treeview
+        a href='#'
+          = fa_icon('archive', text: 'Manager')
+          span.pull-right-container = fa_icon 'angle-down', class: 'pull-right'
+          
+        ul.treeview-menu
+          li = link_to 'Users'
+          li = link_to 'Characters'
+          li = link_to 'Help tickets'
+          li = link_to 'Reports'
+          li = link_to 'Bugs'

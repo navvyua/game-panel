@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+  before_action :unauthenticated_only, only: [:new, :create]
+  before_action :authenticated_only, only: :destroy
+
   def create
     auth_params ? oauth_create : default_create
   end

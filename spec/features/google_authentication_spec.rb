@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-# rubocop:disable Metrics/BlockLength
 feature 'Google authentication' do
   context 'with valid hash' do
     before(:each) do

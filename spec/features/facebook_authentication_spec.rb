@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-# rubocop:disable Metrics/BlockLength
 feature 'Facebook authentication' do
   context 'with valid hash' do
     before(:each) do

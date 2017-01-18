@@ -1,0 +1,24 @@
+section.content
+  .row
+    .col-md-12
+      .box
+        .box-header.with-border
+          h3.box-title News
+          - if current_user.admin?
+            button.btn.btn-info.btn-sm.pull-right data-target='#newsModal' data-toggle='modal' type='button' Add news
+        .box-body
+          table.table.table-bordered
+            - @all_news.each do |n|
+              tr
+                td.index-image-width
+                  = link_to news_path(n) do 
+                    = image_tag(n.news_image.thumb)
+                td 
+                  = link_to news_path(n) do 
+                    strong = n.title
+                  p = slice_news_text(n.text) 
+                  .text-muted.pull-right Created at - #{news_date_format(n.created_at)}
+        .box-footer.clearfix
+          = paginate @all_news, theme: 'twitter-bootstrap-3'
+
+= render 'news_dialog' 

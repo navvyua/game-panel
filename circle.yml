@@ -3,3 +3,8 @@ dependencies:
     - cp config/secrets.yml.example config/secrets.yml
   post:
     - bundle exec rubocop
+deployment:
+ staging:
+   branch: master
+   heroku:
+     appname: game-panel

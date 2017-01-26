@@ -28,7 +28,9 @@ gem 'capistrano-rails', group: :development
 group :development, :test do
   gem 'pry'
   gem 'awesome_print'
-  gem 'rubocop'
+  gem 'rubocop', require: false
+  gem 'jshint'
+  gem 'slim_lint', require: false
   gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'poltergeist'
@@ -37,6 +39,7 @@ group :development, :test do
   gem 'rspec-retry'
   gem 'capybara'
   gem 'faker'
+  gem 'launchy'
 end
 
 group :development do

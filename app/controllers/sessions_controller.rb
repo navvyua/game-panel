@@ -26,6 +26,7 @@ class SessionsController < ApplicationController
   def user_params
     password = SecureRandom.hex(8)
     user = User.find_or_create_by(email: auth_params['info']['email']) do |u|
+      u.name = auth_params['info']['name']
       u.password = password
       u.password_confirmation = password
     end
@@ -34,7 +35,6 @@ class SessionsController < ApplicationController
 
   def default_create
     user = User.find_by(email: params[:email])
-
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to profile_user_path(user)

@@ -1,11 +1,15 @@
 .login-box
   .login-logo
     = render 'shared/auth_logo'
-  
+
   .login-box-body
     p.login-box-msg Sign Up
     
     = simple_form_for @user do |f|
+      .form-group.has-feedback
+        = f.input :name, label: false, placeholder: 'Username', input_html: { class: 'form-control' }
+        = fa_icon 'user', class: 'form-control-feedback fa-lg'
+    
       .form-group.has-feedback
         = f.input :email, label: false, placeholder: 'Email', input_html: { class: 'form-control' }
         = fa_icon 'envelope-o', class: 'form-control-feedback fa-lg'

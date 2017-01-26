@@ -6,7 +6,7 @@ feature 'Google authentication' do
       OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new(
         provider: 'google_oauth2',
         uid: Faker::Number.number(8),
-        info: { email: Faker::Internet.email }
+        info: { email: Faker::Internet.email, name: Faker::Name.first_name }
       )
     end
 

@@ -6,7 +6,7 @@ feature 'Facebook authentication' do
       OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new(
         provider: 'facebook',
         uid: Faker::Number.number(8),
-        info: { email: Faker::Internet.email }
+        info: { email: Faker::Internet.email, name: Faker::Name.first_name }
       )
     end
 

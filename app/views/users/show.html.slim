@@ -1,96 +1,76 @@
-.content-wrapper
-  section.content-header
-    .row
-      .col-xs-6
-        h3 Profile
-      .col-xs-6
-        h3.pull-right Characters
-    
-  section.content
-    .row
-      .col-md-4
-        .box.box-primary
-          .box-body.box-profile
-            / avatar
-            
-            h3.profie-username.text-center = @user.name
-            
-            / p.text-muted.text-center = @user.role
-                
-            ul.list-group.list-group-unbordered
-              li.list-group-item
-                b Email
-                span.pull-right = @user.email
-            
-              li.list-group-item
-                b Characters
-                span.pull-right 1
-                
-              li.list-group-item
-                b Reports
-                span.pull-right 0
-                
-              li.list-group-item
-                b Warns
-                span.pull-right 0
-                
-            / owner or admin only    
-            = link_to 'Edit profile', nil, class: 'btn btn-primary btn-block btn-flat'
-            
-        .box.box-primary
-          .box-header.with-border
-            h3.box-title About me
-            
-          .box-body
-            ul.list-group.list-group-unbordered
-              li.list-group-item
-                b First name
-                / span.pull-right = @user.first_name || '-'
-                
-              li.list-group-item
-                b Age
-                / span.pull-right = @user.age || '-'
-                
-              li.list-group-item
-                b Location
-                / span.pull-right = @user.location || '-'
-                
-              / - if @user.biography
-              /   b Short biography
-              /   
-              /   p = @user.biography  
+section.content-header
+  .row
+    .col-xs-6
+      h3 Profile
+    .col-xs-6
+      h3.pull-right Characters
+  
+section.content
+  .row
+    .col-md-4
+      .box.box-primary
+        .box-body.box-profile
+          h3.profie-username.text-center = @user.name
+          ul.list-group.list-group-unbordered
+            li.list-group-item
+              b Email
+              span.pull-right = @user.email
+          
+            li.list-group-item
+              b Characters
+              span.pull-right 1
               
-      .col-md-8
-        / - @user.characters.each do |character|
-        .box.box-primary
-          .box-header.with-border
-            h3.box-title John Green
+            li.list-group-item
+              b Reports
+              span.pull-right 0
+              
+            li.list-group-item
+              b Warns
+              span.pull-right 0
+              
+          = link_to 'Edit profile', nil, class: 'btn btn-primary btn-block btn-flat'
+          
+      .box.box-primary
+        .box-header.with-border
+          h3.box-title About me
+          
+        .box-body
+          ul.list-group.list-group-unbordered
+            li.list-group-item
+              b First name
+            li.list-group-item
+              b Age
+            li.list-group-item
+              b Location
             
-          .box-body
-            / character avatar pull left
-            .row
-              .col-xs-6
-                ul.list-group.list-group.list-group-unbordered
-                  li.list-group-item
-                    b Faction
-                    span.pull-right Los Santos Police Department
-                    
-                  li.list-group-item
-                    b Cash
-                    span.pull-right $1200
-                    
-                  li.list-group-item
-                    b Bank
-                    span.pull-right $30 000
+    .col-md-8
+      .box.box-primary
+        .box-header.with-border
+          h3.box-title John Green
+        .box-body
+          .row
+            .col-xs-6
+              ul.list-group.list-group.list-group-unbordered
+                li.list-group-item
+                  b Faction
+                  span.pull-right Los Santos Police Department
                   
-              .col-xs-6
-                ul.list-group.list-group.list-group-unbordered
-                  li.list-group-item
-                    b Vehicle
-                    span.pull-right Blista Compact
-                    
-                  li.list-group-item
-                    b Location
-                    span.pull-right Los Santos - Downtown
-                    
-                = link_to 'More', nil, class: 'btn btn-primary btn-flat pull-right'
+                li.list-group-item
+                  b Cash
+                  span.pull-right $1200
+                  
+                li.list-group-item
+                  b Bank
+                  span.pull-right $30 000
+                
+            .col-xs-6
+              ul.list-group.list-group.list-group-unbordered
+                li.list-group-item
+                  b Vehicle
+                  span.pull-right Blista Compact
+                  
+                li.list-group-item
+                  b Location
+                  span.pull-right Los Santos - Downtown
+                  
+              = link_to 'More', nil, class: 'btn btn-primary btn-flat pull-right'

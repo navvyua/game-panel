@@ -64,6 +64,9 @@ GEM
       execjs
     awesome_print (1.7.0)
     bcrypt (3.1.11)
+    bootstrap-kaminari-views (0.0.5)
+      kaminari (>= 0.13)
+      rails (>= 3.1)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -152,6 +155,18 @@ GEM
       therubyracer (~> 0.12.1)
     json (2.0.3)
     jwt (1.5.6)
+    kaminari (1.0.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.0.1)
+      kaminari-activerecord (= 1.0.1)
+      kaminari-core (= 1.0.1)
+    kaminari-actionview (1.0.1)
+      actionview
+      kaminari-core (= 1.0.1)
+    kaminari-activerecord (1.0.1)
+      activerecord
+      kaminari-core (= 1.0.1)
+    kaminari-core (1.0.1)
     launchy (2.4.3)
       addressable (~> 2.3)
     libv8 (3.16.14.17)
@@ -166,6 +181,7 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
+    mini_magick (4.6.0)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     multi_json (1.12.1)
@@ -211,6 +227,8 @@ GEM
       slop (~> 3.4)
     public_suffix (2.0.5)
     puma (3.6.2)
+    pundit (1.1.0)
+      activesupport (>= 3.0.0)
     rack (2.0.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -347,6 +365,7 @@ DEPENDENCIES
   adminlte2assets-rails!
   awesome_print
   bcrypt (~> 3.1.7)
+  bootstrap-kaminari-views
   capistrano-rails
   capybara
   carrierwave
@@ -359,8 +378,10 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   jshint
+  kaminari
   launchy
   listen (~> 3.0.5)
+  mini_magick
   omniauth
   omniauth-facebook
   omniauth-google-oauth2
@@ -368,6 +389,7 @@ DEPENDENCIES
   poltergeist
   pry
   puma (~> 3.0)
+  pundit
   rails (~> 5.0.1)
   rspec-rails
   rspec-retry

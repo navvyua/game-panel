@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'sessions#new'
+  root 'news#index'
 
   get    'sign_up',  to: 'users#new'
   get    'sign_in',  to: 'sessions#new'
@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   resources :users, except: [:index, :show, :new, :destroy] do
     get 'profile', to: 'users#show', on: :member
   end
+
+  resources :news
 end

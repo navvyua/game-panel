@@ -3,7 +3,7 @@
     .box.box-widget
       .box-header.with-border
         h4.text-center = @news.title
-        .text-muted.pull-right Created at - #{news_date_format(@news.created_at)} 
+        .text-muted.pull-right news_created_label(news)
       .box-body
         .text-center
           = image_tag(@news.news_image.big)

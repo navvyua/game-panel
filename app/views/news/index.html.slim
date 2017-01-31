@@ -4,20 +4,21 @@ section.content
       .box
         .box-header.with-border
           h3.box-title News
-          - if current_user.admin?
-            button.btn.btn-info.btn-sm.pull-right data-target='#newsModal' data-toggle='modal' type='button' Add news
+          - if current_user_admin?
+            button.btn.btn-primary.btn-sm.pull-right.btn-flat data-target='#newsModal' data-toggle='modal' type='button'
+              | Add news
         .box-body
           table.table.table-bordered
-            - @all_news.each do |n|
+            - @all_news.each do |news|
               tr
                 td.index-image-width
-                  = link_to news_path(n) do 
-                    = image_tag(n.news_image.thumb)
+                  = link_to news_path(news) do 
+                    = image_tag(news.news_image.thumb)
                 td 
-                  = link_to news_path(n) do 
-                    strong = n.title
-                  p = slice_news_text(n.text) 
-                  .text-muted.pull-right Created at - #{news_date_format(n.created_at)}
+                  = link_to news_path(news) do 
+                    strong = news.title
+                  p = slice_news_text(news.text) 
+                  .text-muted.pull-right = news_created_label(news)
         .box-footer.clearfix
           = paginate @all_news, theme: 'twitter-bootstrap-3'
 

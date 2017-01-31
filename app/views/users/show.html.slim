@@ -4,45 +4,48 @@ section.content-header
       h3 Profile
     .col-xs-6
       h3.pull-right Characters
-  
 section.content
   .row
     .col-md-4
       .box.box-primary
         .box-body.box-profile
+          / avatar
           h3.profie-username.text-center = @user.name
+          p.text-muted.text-center = @user.role.capitalize
           ul.list-group.list-group-unbordered
             li.list-group-item
               b Email
               span.pull-right = @user.email
-          
             li.list-group-item
               b Characters
               span.pull-right 1
-              
             li.list-group-item
               b Reports
               span.pull-right 0
-              
             li.list-group-item
               b Warns
               span.pull-right 0
-              
-          = link_to 'Edit profile', nil, class: 'btn btn-primary btn-block btn-flat'
-          
+          - if current_user == @user || current_user.admin?    
+            = link_to 'Edit profile', nil, class: 'btn btn-primary btn-block btn-flat'
       .box.box-primary
         .box-header.with-border
-          h3.box-title About me
-          
         .box-body
           ul.list-group.list-group-unbordered
             li.list-group-item
               b First name
+              span.pull-right = format_user_data(@user.first_name)
+            li.list-group-item
+              b Last name
+              span.pull-right = format_user_data(@user.last_name)
             li.list-group-item
               b Age
+              span.pull-right = format_user_data(@user.age)
             li.list-group-item
               b Location
-            
+              span.pull-right = format_user_data(@user.location)
+            - if @user.about
+              b About me
+              p = @user.about  
     .col-md-8
       .box.box-primary
         .box-header.with-border
@@ -54,23 +57,18 @@ section.content
                 li.list-group-item
                   b Faction
                   span.pull-right Los Santos Police Department
-                  
                 li.list-group-item
                   b Cash
                   span.pull-right $1200
-                  
                 li.list-group-item
                   b Bank
                   span.pull-right $30 000
-                
             .col-xs-6
               ul.list-group.list-group.list-group-unbordered
                 li.list-group-item
                   b Vehicle
                   span.pull-right Blista Compact
-                  
                 li.list-group-item
                   b Location
                   span.pull-right Los Santos - Downtown
-                  
               = link_to 'More', nil, class: 'btn btn-primary btn-flat pull-right'

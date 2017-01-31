@@ -1,7 +1,5 @@
-/! Modal
 #newsModal.modal.fade role='dialog' 
   .modal-dialog
-    /! Modal content
     .modal-content
       .modal-header
         button.close data-dismiss='modal' type='button' &times;
@@ -13,7 +11,7 @@
               = f.text_field :title, class: 'form-control', required: true, placeholder: 'minimum 10 symbols'
             .form-group
               = f.label :text
-              = f.text_area :text, class: 'form-control', rows: 7, required: true, placeholder: 'minimum 500 symbols'
+              = f.text_area :text, class: 'form-control', rows: 7, required: true, placeholder: 'minimum 10 symbols'
             .form-group
               = f.label 'News photo'
               = f.file_field :news_image, required: true

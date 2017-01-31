@@ -1,13 +1,11 @@
 class NewsController < ApplicationController
   before_action :find_news, only: [:edit, :update, :show, :destroy]
-  before_action :authenticated_only
+  before_action :authenticated_only, except: :index
 
   def index
     @all_news = News.page(params[:page]).per(5).reverse_order
     @news = News.new
   end
-
-  def show; end
 
   def create
     current_user.news.create!(news_params)

@@ -36,4 +36,6 @@
       = link_to fa_icon('google-plus', text: 'Sign Up using Google'), '/auth/google_oauth2',
                 class: 'btn btn-block btn-social btn-google btn-flat'
                 
-    .text-center = link_to 'Already have an account? Sign In here.', sign_in_path
+    .text-center
+      = link_to 'Already have an account? Sign In here.', sign_in_path, class: 'btn btn-block btn-flat btn-success'
+      = link_to 'Back to news blog', news_index_path

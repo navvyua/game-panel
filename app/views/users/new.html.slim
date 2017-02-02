@@ -3,39 +3,39 @@
     = render 'shared/auth_logo'
 
   .login-box-body
-    p.login-box-msg Sign Up
+    p.login-box-msg = t('.sign_up')
     
     = simple_form_for @user do |f|
       .form-group.has-feedback
-        = f.input :name, label: false, placeholder: 'Username', input_html: { class: 'form-control' }
+        = f.input :name, label: false, placeholder: t('.username'), input_html: { class: 'form-control' }
         = fa_icon 'user', class: 'form-control-feedback fa-lg'
     
       .form-group.has-feedback
-        = f.input :email, label: false, placeholder: 'Email', input_html: { class: 'form-control' }
+        = f.input :email, label: false, placeholder: t('.email'), input_html: { class: 'form-control' }
         = fa_icon 'envelope-o', class: 'form-control-feedback fa-lg'
         
       .form-group.has-feedback
-        = f.input :password, required: true, label: false, placeholder: 'Password',
+        = f.input :password, required: true, label: false, placeholder: t('.password'),
                   input_html: { class: 'form-control' }
         = fa_icon 'lock', class: 'form-control-feedback fa-lg'
         
       .form-group.has-feedback
-        = f.input :password_confirmation, required: true, label: false, placeholder: 'Password confirmation',
+        = f.input :password_confirmation, required: true, label: false, placeholder: t('.repeat_password'),
                   input_html: { class: 'form-control' }
         = fa_icon 'repeat', class: 'form-control-feedback fa-lg'
       
       .row
         .col-xs-12
-          = f.button :submit, 'Sign Up', class: 'btn btn-primary btn-block btn-flat'
+          = f.button :submit, t('.sign_up'), class: 'btn btn-primary btn-block btn-flat'
           
     .social-auth-links.text-center
       p or
       
-      = link_to fa_icon('facebook', text: 'Sign Up using Facebook'), '/auth/facebook',
+      = link_to fa_icon('facebook', text: t('sessions.new.sign_in_facebook')), '/auth/facebook',
                 class: 'btn btn-block btn-social btn-facebook btn-flat'
-      = link_to fa_icon('google-plus', text: 'Sign Up using Google'), '/auth/google_oauth2',
+      = link_to fa_icon('google-plus', text: t('sessions.new.sign_in_google')), '/auth/google_oauth2',
                 class: 'btn btn-block btn-social btn-google btn-flat'
                 
     .text-center
-      = link_to 'Already have an account? Sign In here.', sign_in_path, class: 'btn btn-block btn-flat btn-success'
-      = link_to 'Back to news blog', news_index_path
+      = link_to t('sessions.new.already_have_account'), sign_in_path, class: 'btn btn-block btn-flat btn-success'
+      = link_to t('sessions.new.back_to_news'), news_index_path

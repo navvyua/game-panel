@@ -3,7 +3,7 @@ class NewsController < ApplicationController
   before_action :authenticated_only, except: :index
 
   def index
-    @all_news = News.page(params[:page]).per(5).reverse_order
+    @all_news = News.includes(:user).page(params[:page]).reverse_order
     @news = News.new
   end
 

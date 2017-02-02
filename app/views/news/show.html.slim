@@ -3,14 +3,15 @@
     .box.box-widget
       .box-header.with-border
         h4.text-center = @news.title
-        .text-muted.pull-right news_created_label(news)
+        .text-muted.pull-right = news_created_label(@news)
       .box-body
         .text-center
           = image_tag(@news.news_image.big)
         p
         p = @news.text
         - if current_user.admin?
-          = link_to 'Delete', news_path(@news.id), method: :delete, class: 'btn btn-danger pull-right' 
-          button.btn.btn-default.pull-right data-target='#newsModal' data-toggle='modal' type='button' Edit
+          = link_to t('.delete'), news_path(@news.id), method: :delete, class: 'btn btn-danger pull-right' 
+          button.btn.btn-default.pull-right data-target='#newsModal' data-toggle='modal' type='button' 
+            = t('.edit')
 
 = render 'news_dialog' 

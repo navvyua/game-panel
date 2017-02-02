@@ -21,7 +21,7 @@ feature 'News' do
         end
 
         scenario 'does not contain add button' do
-          expect(page).not_to have_button('Add news')
+          expect(page).not_to have_button(I18n.t('news.news_dialog.add_news'))
         end
 
         scenario 'moves to chosen news page' do
@@ -37,11 +37,11 @@ feature 'News' do
 
       context 'does not contain' do
         scenario 'edit button' do
-          expect(page).not_to have_button('Edit')
+          expect(page).not_to have_button(I18n.t('news.show.edit'))
         end
 
         scenario 'delete button' do
-          expect(page).not_to have_button('Delete')
+          expect(page).not_to have_button(I18n.t('news.show.delete'))
         end
       end
     end
@@ -51,8 +51,8 @@ feature 'News' do
     let(:user) { create :user, role: 2 }
     let!(:news) { create :news, user_id: user.id }
     let(:title) { attributes_for(:news)['title'] }
-    let(:new_title) { 'This is the new title!' }
-    let(:edit_title) { 'This is edited test news!' }
+    let(:new_title) { I18n.t('news.tests.new_title') }
+    let(:edit_title) { I18n.t('news.tests.edit_title') }
 
     before(:each) do
       sign_in user
@@ -67,7 +67,7 @@ feature 'News' do
       end
 
       scenario 'contain add button' do
-        expect(page).to have_button('Add news')
+        expect(page).to have_button(I18n.t('news.news_dialog.add_news'))
       end
 
       scenario 'chosen news page' do
@@ -77,11 +77,11 @@ feature 'News' do
       end
 
       scenario 'create new news' do
-        click_button 'Add news'
+        click_button I18n.t('news.news_dialog.add_news')
         fill_in('Title', with: new_title)
         fill_in('Text', with: Faker::Hipster.paragraphs(5).to_s)
         attach_file('news_news_image', 'spec/support/images/test_image.png')
-        click_button 'Submit'
+        click_button I18n.t('news.news_dialog.submit')
 
         expect(page).to have_content(new_title)
       end
@@ -91,24 +91,24 @@ feature 'News' do
       before { visit news_path(news.id) }
 
       scenario 'edit button' do
-        expect(page).to have_button('Edit')
+        expect(page).to have_button(I18n.t('news.show.edit'))
       end
 
       scenario 'delete button' do
-        expect(page).to have_content('Delete')
+        expect(page).to have_content(I18n.t('news.show.delete'))
       end
 
       scenario 'admin can edit news' do
-        click_button 'Edit'
+        click_button I18n.t('news.show.edit')
         fill_in('Title', with: edit_title)
         attach_file('news_news_image', 'spec/support/images/test_image.png')
-        click_button 'Submit'
+        click_button I18n.t('news.news_dialog.submit')
 
         expect(page).to have_content(edit_title)
       end
 
       scenario 'admin can delete news' do
-        click_link 'Delete'
+        click_link I18n.t('news.show.delete')
 
         expect(page).not_to have_content(edit_title)
       end

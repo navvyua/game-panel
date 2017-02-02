@@ -3,10 +3,10 @@ section.content
     .col-md-12
       .box
         .box-header.with-border
-          h3.box-title News
+          h3.box-title = t('.title')
           - if current_user_admin?
             button.btn.btn-primary.btn-sm.pull-right.btn-flat data-target='#newsModal' data-toggle='modal' type='button'
-              | Add news
+              = t('.add_news')
         .box-body
           table.table.table-bordered
             - @all_news.each do |news|

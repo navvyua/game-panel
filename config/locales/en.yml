@@ -1,23 +1,102 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  
+  layouts:
+    application:
+      title: Game panel
+    authentication:
+      auth: GP - Authentication
+  
+  shared:
+    header: 
+      signed_up: Signed up
+      sign_out: Sign Out    
+      profile: Profile
+      settings: Settings
+      some_info: Some info
+      sign_in_or_sign_up: Sign In or Sign Up 
+    sidebar:
+      news: News
+      characters: Characters
+      create_character: Create character
+      my_characters: My characters
+      help_center: Help center
+      create_help_ticket: Create help ticket
+      my_help_tickets: My help tickets
+      ask_online: Ask online
+      ask_online_not_available: Ask online not avaliable
+      bugtracker: Bugtracker
+      create_bug_ticket: Create bug ticket
+      my_bug_tickets: My bug tickets
+      panel: PANEL
+      character_validation: Characters validation
+      help_requests: Help requests
+      user_reports: User reports
+      manager: Manager
+      users: Users
+      help_tickets: Help tickets
+      reports: Reports
+      bugs: Bugs
+    footer:
+      version: Version
+      v_numb: ' 1.0.1'
+      copyright: Copyright © 2016-2017 
+      organization: ' GeekHub '
+      all_rights_reserved: All rights reserved.
+
+  sessions:
+    new:
+      sign_in: Sign In
+      email: Email
+      password: Password
+      sign_in_facebook: Sign In using Facebook
+      sign_in_google: Sign In using Google
+      sign_up_here: Don't have an account? Sign Up here.
+      back_to_news: Back to news blog
+      already_have_account: Already have an account? Sign In here.
+  
+  users:
+    new: 
+      sign_up: Sign Up
+      username: Username
+      email: Email
+      password: Password
+      repeat_password: Password confirmation
+    show:
+      profile: Profile
+      characters: Characters
+      email: Email
+      reports: Reports
+      warns: Warns
+      edit_profile: Edit profile
+      first_name: First Name
+      last_name: Last Name
+      age: Age
+      location: location
+      about_me: About me
+      faction: Faction
+      cash: Cash
+      bank: Bank
+      vehicle: Vehicle
+      location: Location
+      more: More
+
+  news:
+    index:
+      title: News
+      posted: Posted at %{time} by %{author}
+      add_news: Add news
+    news_dialog:
+      add_news: Add news
+      mimimun_10_symbols: minimum 10 symbols
+      news_photo: News photo
+      submit: Submit
+      close: Close
+    show:
+      delete: Delete
+      edit: Edit
+    tests:
+      new_title: This is the new title! 
+      edit_title: This is edited test news!
+
+
+

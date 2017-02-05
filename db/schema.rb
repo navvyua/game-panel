@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20170207185331) do
     t.integer  "age"
     t.string   "location"
     t.text     "about"
+    t.string   "avatar"
   end
 
   add_foreign_key "accounts", "users"

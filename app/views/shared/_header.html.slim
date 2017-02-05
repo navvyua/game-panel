@@ -20,17 +20,18 @@ header.main-header
         ul.nav.navbar-nav
           li.dropdown.user.user-menu
             a.dropdown-toggle href='#' data-toggle='dropdown'
-              / avatar
+              img.img-circle.text-center
+                = image_tag(current_user.avatar.thumb, class: 'img user-image')
               span.hidden-xs = fa_icon 'angle-down', right: true, text: current_user.name
               
             ul.dropdown-menu
               li.user-header
-                / avatar
+                = image_tag(current_user.avatar.thumb, class: 'img-circle')
                 
                 p
-                  / #{current_user.name} - #{current_user.role}
+                  = current_user_name_label
                   small = t('.signed_up') 
-                  small #{current_user.created_at.strftime('%d %b. %Y')}
+                  small = current_user_created_label
                   
               li.user-body
                 .row

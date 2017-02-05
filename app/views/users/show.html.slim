@@ -9,7 +9,7 @@ section.content
     .col-md-5
       .box.box-primary
         .box-body.box-profile
-          / avatar
+          = image_tag(@user.avatar.small, class: 'profile-user-img img-responsive img-circle')
           h3.profie-username.text-center = @user.name
           p.text-muted.text-center = @user.role.capitalize
           ul.list-group.list-group-unbordered
@@ -26,7 +26,8 @@ section.content
               b = t('.warns')
               span.pull-right 0
           - if current_user == @user || current_user.admin?    
-            = link_to t('.edit_profile'), nil, class: 'btn btn-primary btn-block btn-flat'
+            button.btn.btn-primary.btn-block.btn-flat data-target='#user-edit-modal' data-toggle='modal' type='button' 
+            	= t('.edit')
       .box.box-primary
         .box-header.with-border
         .box-body
@@ -72,3 +73,5 @@ section.content
                   b = t('.location')
                   span.pull-right Los Santos - Downtown
               = link_to t('.more'), nil, class: 'btn btn-primary btn-flat pull-right'
+
+= render 'edit_dialog' 

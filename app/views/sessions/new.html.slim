@@ -3,29 +3,29 @@
     = render 'shared/auth_logo'
   
   .login-box-body
-    p.login-box-msg Sign In
+    p.login-box-msg = t('.sign_in')
     
     = form_tag sign_in_path do
       .form-group.has-feedback
-        = email_field_tag :email, nil, required: true, class: 'form-control', placeholder: 'Email'
+        = email_field_tag :email, nil, required: true, class: 'form-control', placeholder: t('.email')
         = fa_icon 'envelope-o', class: 'form-control-feedback fa-lg'
         
       .form-group.has-feedback
-        = password_field_tag :password, nil, required: true, class: 'form-control', placeholder: 'Password'
+        = password_field_tag :password, nil, required: true, class: 'form-control', placeholder: t('.password')
         = fa_icon 'lock', class: 'form-control-feedback fa-lg'
       
       .row
         .col-xs-12
-          = submit_tag 'Sign In', class: 'btn btn-primary btn-block btn-flat'
+          = submit_tag t('.sign_in'), class: 'btn btn-primary btn-block btn-flat'
           
     .social-auth-links.text-center
       p or
       
-      = link_to fa_icon('facebook', text: 'Sign In using Facebook'), '/auth/facebook',
+      = link_to fa_icon('facebook', text: t('.sign_in_facebook')), '/auth/facebook',
                 class: 'btn btn-block btn-social btn-facebook btn-flat'
-      = link_to fa_icon('google-plus', text: 'Sign In using Google'), '/auth/google_oauth2',
+      = link_to fa_icon('google-plus', text: t('.sign_in_google')), '/auth/google_oauth2',
                 class: 'btn btn-block btn-social btn-google btn-flat'
                 
     .text-center
-      = link_to 'Don\'t have an account? Sign Up here.', sign_up_path, class: 'btn btn-block btn-flat btn-success'
-      = link_to 'Back to news blog', news_index_path
+      = link_to t('.sign_up_here'), sign_up_path, class: 'btn btn-block btn-flat btn-success'
+      = link_to t('.back_to_news'), news_index_path

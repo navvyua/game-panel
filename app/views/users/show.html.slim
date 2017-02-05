@@ -1,9 +1,9 @@
 section.content-header
   .row
     .col-xs-6
-      h3 Profile
+      h3 = t('.profile')
     .col-xs-6
-      h3.pull-right Characters
+      h3.pull-right = t('.characters')
 section.content
   .row
     .col-md-4
@@ -14,37 +14,37 @@ section.content
           p.text-muted.text-center = @user.role.capitalize
           ul.list-group.list-group-unbordered
             li.list-group-item
-              b Email
+              b = t('.email')
               span.pull-right = @user.email
             li.list-group-item
-              b Characters
+              b = t('.characters')
               span.pull-right 1
             li.list-group-item
-              b Reports
+              b = t('.reports')
               span.pull-right 0
             li.list-group-item
-              b Warns
+              b = t('.warns')
               span.pull-right 0
           - if current_user == @user || current_user.admin?    
-            = link_to 'Edit profile', nil, class: 'btn btn-primary btn-block btn-flat'
+            = link_to t('.edit_profile'), nil, class: 'btn btn-primary btn-block btn-flat'
       .box.box-primary
         .box-header.with-border
         .box-body
           ul.list-group.list-group-unbordered
             li.list-group-item
-              b First name
+              b = t('.first_name')
               span.pull-right = format_user_data(@user.first_name)
             li.list-group-item
-              b Last name
+              b = t('.last_name')
               span.pull-right = format_user_data(@user.last_name)
             li.list-group-item
-              b Age
+              b = t('.age')
               span.pull-right = format_user_data(@user.age)
             li.list-group-item
-              b Location
+              b = t('.location')
               span.pull-right = format_user_data(@user.location)
             - if @user.about
-              b About me
+              b = t('.about_me')
               p = @user.about  
     .col-md-8
       .box.box-primary
@@ -55,20 +55,20 @@ section.content
             .col-xs-6
               ul.list-group.list-group.list-group-unbordered
                 li.list-group-item
-                  b Faction
+                  b = t('.faction')
                   span.pull-right Los Santos Police Department
                 li.list-group-item
-                  b Cash
+                  b = t('.cash')
                   span.pull-right $1200
                 li.list-group-item
-                  b Bank
+                  b = t('.bank')
                   span.pull-right $30 000
             .col-xs-6
               ul.list-group.list-group.list-group-unbordered
                 li.list-group-item
-                  b Vehicle
+                  b = t('.vehicle')
                   span.pull-right Blista Compact
                 li.list-group-item
-                  b Location
+                  b = t('.location')
                   span.pull-right Los Santos - Downtown
-              = link_to 'More', nil, class: 'btn btn-primary btn-flat pull-right'
+              = link_to t('.more'), nil, class: 'btn btn-primary btn-flat pull-right'

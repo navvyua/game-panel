@@ -29,28 +29,29 @@ header.main-header
                 
                 p
                   / #{current_user.name} - #{current_user.role}
-                  small Signed up #{current_user.created_at.strftime('%d %b. %Y')}
+                  small = t('.signed_up') 
+                  small #{current_user.created_at.strftime('%d %b. %Y')}
                   
               li.user-body
                 .row
                   .col-xs-4.text-center
-                    | Some info
+                    = t('.some_info')
                 
                   .col-xs-4.text-center
-                    | Some info
+                    = t('.some_info')
                 
                   .col-xs-4.text-center
-                    | Some info
+                    = t('.some_info')
                     
               li.user-footer
                 .row
                   .col-xs-12
                     .btn-group
-                      = link_to 'Profile', profile_user_path(current_user), class: 'btn btn-default btn-flat'
-                      = link_to fa_icon('cog', text: 'Setting'), nil, class: 'btn btn-default btn-flat'
-                      = link_to fa_icon('sign-out', text: 'Sign Out', right: true), sign_out_path,
+                      = link_to t('.profile'), profile_user_path(current_user), class: 'btn btn-default btn-flat'
+                      = link_to fa_icon('cog', text: t('.settings')), nil, class: 'btn btn-default btn-flat'
+                      = link_to fa_icon('sign-out', text: t('.sign_out'), right: true), sign_out_path,
                                 method: :delete, class: 'btn btn-default btn-flat'
                   .col-xs-12
       - else
         ul.nav.navbar-nav
-          li = link_to 'Sign In or Sign Up', sign_in_path
+          li = link_to t('.sign_in_or_sign_up'), sign_in_path

@@ -3,18 +3,18 @@
     .modal-content
       .modal-header
         button.close data-dismiss='modal' type='button' &times;
-        h4.modal-title Add news
+        h4.modal-title = t('.add_news')
       = form_for @news do |f|
         .modal-body.box-body
             .form-group
               = f.label :title
-              = f.text_field :title, class: 'form-control', required: true, placeholder: 'minimum 10 symbols'
+              = f.text_field :title, class: 'form-control', required: true, placeholder: t('.mimimun_10_symbols')
             .form-group
               = f.label :text
-              = f.text_area :text, class: 'form-control', rows: 7, required: true, placeholder: 'minimum 10 symbols'
+              = f.text_area :text, class: 'form-control', rows: 7, required: true, placeholder: t('.mimimun_10_symbols')
             .form-group
-              = f.label 'News photo'
+              = f.label t('.news_photo')
               = f.file_field :news_image, required: true
         .modal-footer
-          = f.submit 'Submit', class: 'btn btn-primary'
-          button.btn.btn-default data-dismiss='modal' type='button'  Close
+          = f.submit t('.submit'), class: 'btn btn-primary'
+          button.btn.btn-default data-dismiss='modal' type='button' = t('news.dialog.close')

@@ -1,70 +1,70 @@
 aside.main-sidebar
   section.sidebar
     ul.sidebar-menu
-      li = link_to fa_icon('newspaper-o', text: 'News'), news_index_path
+      li = link_to fa_icon('newspaper-o', text: t('.news')), news_index_path
       
       - if current_user
         li.treeview
           a href='#'
-            = fa_icon 'users', text: 'Characters'
+            = fa_icon 'users', text: t('.characters')
             span.pull-right-container = fa_icon 'angle-down', class: 'pull-right'
             
           ul.treeview-menu
-            li = link_to fa_icon('user-plus', text: 'Create character')
-            li = link_to fa_icon('male', text: 'My characters')
+            li = link_to fa_icon('user-plus', text: t('.create_character'))
+            li = link_to fa_icon('male', text: t('.my_character'))
             
         li.treeview
           a href='#'
-            = fa_icon 'info', text: 'Help center'
+            = fa_icon 'info', text: t('.help_center')
             span.pull-right-container = fa_icon 'angle-down', class: 'pull-right'
             
           ul.treeview-menu
-            li = link_to fa_icon('plus', text: 'Create help ticket')
-            li = link_to fa_icon('list', text: 'My help tickets')
+            li = link_to fa_icon('plus', text: t('.create_help_ticket'))
+            li = link_to fa_icon('list', text: t('.my_help_tickets'))
             / - if any helper is avaliable to chat
-            li = link_to fa_icon('circle-o', text: 'Ask online', class: 'text-green')
+            li = link_to fa_icon('circle-o', text: t('.ask_online'), class: 'text-green')
             / - else
-            li = link_to fa_icon('circle-o', text: 'Ask online not avaliable', class: 'text-red')
+            li = link_to fa_icon('circle-o', text: t('.ask_online_not_available'), class: 'text-red')
             
         li.treeview
           a href='#'
-            = fa_icon 'bug', text: 'Bugtracker'
+            = fa_icon 'bug', text: t('.bugtracker')
             span.pull-right-container = fa_icon 'angle-down', class: 'pull-right'
             
           ul.treeview-menu
-            li = link_to fa_icon('plus', text: 'Create bug ticket')
-            li = link_to fa_icon('list', text: 'My bug tickets')
+            li = link_to fa_icon('plus', text: t('.create_bug_ticket'))
+            li = link_to fa_icon('list', text: t('.my_bug_tickets'))
       
         - unless current_user.user?
-          li.header #{current_user.role.upcase} PANEL
+          li.header #{current_user.role.upcase} #{t('.panel')}
           
           li 
             = link_to nil do
-              = fa_icon('users', text: 'Characters validation')
+              = fa_icon('users', text: t('.character_validation'))
               span.pull-right-container
                 small.label.pull-right.bg-blue 3
                 
           li 
             = link_to nil do
-              = fa_icon('info', text: 'Help requests')
+              = fa_icon('info', text: t('.help_requests'))
               span.pull-right-container
                 small.label.pull-right.bg-yellow 5
                 
           li 
             = link_to nil do
-              = fa_icon('flag', text: 'User reports')
+              = fa_icon('flag', text: t('.user_reports'))
               span.pull-right-container
                 small.label.pull-right.bg-red 8
               
           - if current_user.admin?
             li.treeview
               a href='#'
-                = fa_icon('archive', text: 'Manager')
+                = fa_icon('archive', text: t('.manager'))
                 span.pull-right-container = fa_icon 'angle-down', class: 'pull-right'
                 
               ul.treeview-menu
-                li = link_to 'Users'
-                li = link_to 'Characters'
-                li = link_to 'Help tickets'
-                li = link_to 'Reports'
-                li = link_to 'Bugs'
+                li = link_to t('.users')
+                li = link_to t('.characters')
+                li = link_to t('.help_tickets')
+                li = link_to t('.reports')
+                li = link_to t('.bugs')

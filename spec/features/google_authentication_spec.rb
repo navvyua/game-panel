@@ -12,21 +12,21 @@ feature 'Google authentication' do
 
     scenario 'user signs in' do
       visit sign_in_path
-      click_link 'Google'
-      expect(page).to have_content('Sign Out')
+      click_link I18n.t('sessions.new.sign_in_google')
+      expect(page).to have_content(I18n.t('shared.header.sign_out'))
     end
 
     scenario 'user signs up' do
       visit sign_up_path
-      click_link 'Google'
-      expect(page).to have_content('Sign Out')
+      click_link I18n.t('sessions.new.sign_in_google')
+      expect(page).to have_content(I18n.t('shared.header.sign_out'))
     end
 
     scenario 'user signs out' do
       visit sign_in_path
-      click_link 'Google'
-      click_link 'Sign Out'
-      expect(page).to_not have_content('Sign Out')
+      click_link I18n.t('sessions.new.sign_in_google')
+      click_link I18n.t('shared.header.sign_out')
+      expect(page).to_not have_content(I18n.t('shared.header.sign_out'))
     end
   end
 
@@ -37,14 +37,14 @@ feature 'Google authentication' do
 
     scenario 'user signs in' do
       visit sign_in_path
-      click_link 'Google'
-      expect(page).to_not have_content('Sign Out')
+      click_link I18n.t('sessions.new.sign_in_google')
+      expect(page).to_not have_content(I18n.t('shared.header.sign_out'))
     end
 
     scenario 'user signs up' do
       visit sign_up_path
-      click_link 'Google'
-      expect(page).to_not have_content('Sign Out')
+      click_link I18n.t('sessions.new.sign_in_google')
+      expect(page).to_not have_content(I18n.t('shared.header.sign_out'))
     end
   end
 end

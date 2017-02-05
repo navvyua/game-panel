@@ -4,6 +4,14 @@ module NewsHelper
   end
 
   def news_created_label(news)
-    "Posted at #{news.created_at.strftime('%R %d-%m-%y')} by #{news.user.name}"
+    t('news.index.posted', time: created_at(news), author: author(news))
+  end
+
+  def author(news)
+    news.user.name
+  end
+
+  def created_at(news)
+    news.created_at.strftime('%R %d-%m-%y')
   end
 end

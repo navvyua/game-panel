@@ -1,0 +1,9 @@
+section.content-header
+  h3 = t('.title')
+section.content
+  .row
+    .col-md-10.col-md-offset-1 
+      - if @characters.blank?
+        h2.text-center.text-muted = t('.no_validating_characters')
+      - else
+        = render @characters

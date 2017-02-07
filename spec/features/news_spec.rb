@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'News' do
   describe 'autorized as user' do
-    let(:user) { create :user }
+    let(:user)  { create :user }
     let!(:news) { create :news, user_id: user.id }
     let(:title) { attributes_for(:news)['title'] }
 
@@ -81,7 +81,7 @@ feature 'News' do
         fill_in('Title', with: new_title)
         fill_in('Text', with: Faker::Hipster.paragraphs(5).to_s)
         attach_file('news_news_image', 'spec/support/images/test_image.png')
-        click_button I18n.t('news.news_dialog.submit')
+        click_button I18n.t('helpers.submit.create', model: News)
 
         expect(page).to have_content(new_title)
       end
@@ -102,7 +102,7 @@ feature 'News' do
         click_button I18n.t('news.show.edit')
         fill_in('Title', with: edit_title)
         attach_file('news_news_image', 'spec/support/images/test_image.png')
-        click_button I18n.t('news.news_dialog.submit')
+        click_button I18n.t('helpers.submit.update', model: News)
 
         expect(page).to have_content(edit_title)
       end

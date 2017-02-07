@@ -37,7 +37,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to profile_user_path(user)
+      redirect_to root_path
     else
       render :new
     end
@@ -47,6 +47,6 @@ class SessionsController < ApplicationController
     account = Account.find_by(account_params)
     account = Account.create(account_params.merge(user_params)) unless account
     session[:user_id] = account.user_id
-    redirect_to profile_user_path(account.user)
+    redirect_to root_path
   end
 end

@@ -1,0 +1,15 @@
+#denyModal.modal.fade role='dialog' 
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close data-dismiss='modal' type='button' = fa_icon('times')
+        h3.modal-title = t('.deny_application')
+      
+      = simple_form_for character, url: admin_character_path(character) do |f|
+        = f.hidden_field :status, value: :denied
+        .modal-body.box-body
+          .form-group.has-feedback
+            = f.input :deny_reason, label: false, placeholder: t('.deny_reason'),
+                      input_html: { class: 'form-control', rows: 5 }
+        .modal-footer
+          = f.button :submit, t('.deny'), class: 'btn btn-danger btn-flat btn-block'

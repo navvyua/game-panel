@@ -52,6 +52,11 @@ en:
       sign_up_here: Don't have an account? Sign Up here.
       back_to_news: Back to news blog
       already_have_account: Already have an account? Sign In here.
+    create:
+      signed_in: Successfully signed in
+      incorrect_sign_in: Incorrect email or password
+    destroy:
+      signed_out: Successfully signed out
 
   users:
     new:
@@ -78,6 +83,9 @@ en:
       vehicle: Vehicle
       location: Location
       more: More
+    create:
+      signed_up: Successfully signed up
+      incorrect_info: Incorrect information
 
   news:
     index:
@@ -97,6 +105,12 @@ en:
     tests:
       new_title: This is the new title!
       edit_title: This is edited test news!
+    create:
+      post_created: Post successfully created
+    update:
+      post_updated: Post successfully updated
+    destroy:
+      post_destroyed: Post successfully removed
 
   characters:
     index:
@@ -122,6 +136,11 @@ en:
       last_name: Last name
       age: Age
       biography: Biography
+    create:
+      character_created: Character successfully created
+    update:
+      application_edited: Character application successfully edited
+    incorrect_info: Incorrect information
 
   admin:
     characters:
@@ -138,3 +157,5 @@ en:
       index:
         title: Characters on validation
         no_validating_characters: No characters on validating
+      update:
+        character_validated: Character successfully validated

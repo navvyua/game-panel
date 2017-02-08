@@ -15,16 +15,18 @@ class CharactersController < ApplicationController
   def create
     @character = @user.characters.new(character_params)
     if @character.save
-      redirect_to user_characters_path(@user)
+      redirect_to user_characters_path(@user), notice: t('.character_created')
     else
+      flash.now[:alert] = t('.incorrect_info')
       render :new
     end
   end
 
   def update
     if @character.update(character_params)
-      redirect_to user_characters_path(@user)
+      redirect_to user_characters_path(@user), notice: t('.application_edited')
     else
+      flash.now[:alert] = t('.incorrect_info')
       render :edit
     end
   end

@@ -1,0 +1,5 @@
+.notification
+  - if flash[:alert].present?
+    .alert = flash[:alert]
+  - elsif flash[:notice].present?
+    .notice = flash[:notice]

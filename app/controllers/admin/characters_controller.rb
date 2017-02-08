@@ -7,7 +7,7 @@ class Admin::CharactersController < AdminController
 
   def update
     @character.update!(character_params)
-    redirect_to admin_characters_path
+    redirect_to admin_characters_path, notice: t('.character_validated')
   end
 
   private

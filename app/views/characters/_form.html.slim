@@ -1,0 +1,26 @@
+= simple_form_for [character.user, character] do |f|
+  = render 'shared/character_deny_reason', character: character if character.deny_reason.present?
+
+  .row
+    .col-md-5
+      .form-group.has-feedback
+        = f.input :first_name, label: false, placeholder: t('.first_name'), input_html: { class: 'form-control' }
+        
+      .form-group.has-feedback
+        = f.input :last_name, label: false, placeholder: t('.last_name'), input_html: { class: 'form-control' }
+        
+      .row
+        .col-md-6
+          = f.input :age, label: false, placeholder: t('.age'), input_html: { class: 'form-control' }
+          
+        .col-md-6
+          = f.input :driving_license, required: false
+    
+    .col-md-7
+      .form-group.has-feedback
+        = f.input :biography, label: false, placeholder: t('.biography'),
+                  input_html: { class: 'form-control', rows: 6 }
+              
+  = f.hidden_field :status, value: :validating if character.denied?
+
+  .text-center = f.button :submit, class: 'btn btn-flat btn-success'

@@ -1,19 +1,18 @@
 en:
-  
   layouts:
     application:
       title: Game panel
     authentication:
-      auth: GP - Authentication
-  
+      title: GP - Authentication
+
   shared:
-    header: 
+    header:
       signed_up: Signed up
-      sign_out: Sign Out    
+      sign_out: Sign Out
       profile: Profile
       settings: Settings
       some_info: Some info
-      sign_in_or_sign_up: Sign In or Sign Up 
+      sign_in_or_sign_up: Sign In or Sign Up
     sidebar:
       news: News
       characters: Characters
@@ -39,7 +38,7 @@ en:
     footer:
       version: Version
       v_numb: ' 1.0.1'
-      copyright: Copyright © 2016-2017 
+      copyright: Copyright © 2016-2017
       organization: ' GeekHub '
       all_rights_reserved: All rights reserved.
 
@@ -53,9 +52,9 @@ en:
       sign_up_here: Don't have an account? Sign Up here.
       back_to_news: Back to news blog
       already_have_account: Already have an account? Sign In here.
-  
+
   users:
-    new: 
+    new:
       sign_up: Sign Up
       username: Username
       email: Email
@@ -85,18 +84,57 @@ en:
       title: News
       posted: Posted at %{time} by %{author}
       add_news: Add news
+      no_news: No news
     news_dialog:
       add_news: Add news
-      mimimun_10_symbols: minimum 10 symbols
-      news_photo: News photo
-      submit: Submit
-      close: Close
+      minimun_10_symbols: Minimum 10 symbols
+      title: Title
+      text: Text
+      news_image: News image
     show:
       delete: Delete
       edit: Edit
     tests:
-      new_title: This is the new title! 
+      new_title: This is the new title!
       edit_title: This is edited test news!
 
+  characters:
+    index:
+      title: Your characters
+      dont_have_characters: You don't have characters
+    new:
+      title: Character creation
+    edit:
+      title: Edit character
+    character:
+      owner: Owner
+      age: Age
+      driving_license: Driving license
+      last_activity: Last activity
+      cash: Cash
+      bank: Bank
+      more: More
+      edit: Edit application
+      validating: Validating
+      denied: Denied
+    form:
+      first_name: First name
+      last_name: Last name
+      age: Age
+      biography: Biography
 
-
+  admin:
+    characters:
+      character:
+        accept: Accept
+        created_at: Created at
+        biography: Biography
+        deny: Deny
+        are_you_sure: Are you sure?
+      deny_modal:
+        deny: Deny
+        deny_application: Deny application
+        deny_reason: Deny reason
+      index:
+        title: Characters on validation
+        no_validating_characters: No characters on validating

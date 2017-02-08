@@ -11,7 +11,12 @@ Rails.application.routes.draw do
 
   resources :users, except: [:index, :show, :new, :destroy] do
     get 'profile', to: 'users#show', on: :member
+    resources :characters, except: :delete
   end
 
   resources :news
+
+  namespace :admin do
+    resources :characters, only: [:index, :update]
+  end
 end

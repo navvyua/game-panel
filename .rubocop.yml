@@ -25,3 +25,4 @@ Style/StringLiterals:
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
+    - 'config/initializers/simple_form_bootstrap.rb'

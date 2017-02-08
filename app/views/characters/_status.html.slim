@@ -1,0 +1,6 @@
+- if character.validating?
+  span.label.label-warning
+    = fa_icon 'circle-o-notch', text: t('.validating'), class: 'fa-spin fa-lg'
+- elsif character.denied?
+  span.label.label-danger
+    = fa_icon 'times', text: t('.denied')

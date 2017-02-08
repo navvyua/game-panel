@@ -1,25 +1,19 @@
+= render 'news_dialog' if current_user_admin?
+section.content-header
+  .row
+    .col-md-6
+      h3 = t('.title')
+    .col-md-6
+      - if current_user_admin?
+        button.btn.btn-primary.btn-sm.pull-right.btn-flat data-target='#newsModal' data-toggle='modal' type='button'
+          = fa_icon('plus', text: t('.add_news'))
+          
 section.content
   .row
-    .col-md-12
-      .box
-        .box-header.with-border
-          h3.box-title = t('.title')
-          - if current_user_admin?
-            button.btn.btn-primary.btn-sm.pull-right.btn-flat data-target='#newsModal' data-toggle='modal' type='button'
-              = t('.add_news')
-        .box-body
-          table.table.table-bordered
-            - @all_news.each do |news|
-              tr
-                td.index-image-width
-                  = link_to news_path(news) do 
-                    = image_tag(news.news_image.thumb)
-                td 
-                  = link_to news_path(news) do 
-                    strong = news.title
-                  p = slice_news_text(news.text) 
-                  .text-muted.pull-right = news_created_label(news)
-        .box-footer.clearfix
-          = paginate @all_news, theme: 'twitter-bootstrap-3'
-
-= render 'news_dialog' 
+    .col-md-10.col-md-offset-1
+      - if @all_news.blank?
+        h1.text-center No news
+      - else
+        = render @all_news
+      
+      .clearfix = paginate @all_news, theme: 'twitter-bootstrap-3'

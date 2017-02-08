@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  layout 'authentication', only: :new
+  layout 'authentication', except: :show
 
   before_action :unauthenticated_only, only: [:new, :create]
   before_action :authenticated_only, only: :show

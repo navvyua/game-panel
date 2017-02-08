@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require AdminLTE
+//= require AdminLTE/plugins/slimScroll/jquery.slimscroll
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .

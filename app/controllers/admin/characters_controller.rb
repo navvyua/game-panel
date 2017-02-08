@@ -1,0 +1,22 @@
+class Admin::CharactersController < AdminController
+  before_action :current_resource, only: :update
+
+  def index
+    @characters = Character.validating
+  end
+
+  def update
+    @character.update!(character_params)
+    redirect_to admin_characters_path
+  end
+
+  private
+
+  def character_params
+    params.require(:character).permit(:status, :deny_reason)
+  end
+
+  def current_resource
+    @character = Character.find(params[:id])
+  end
+end

@@ -1,12 +1,10 @@
 class News < ApplicationRecord
-  PER_PAGE = 10
-
-  paginates_per PER_PAGE
+  paginates_per 10
 
   belongs_to :user
 
-  validates :title, presence: true, length: { minimum: 10 }
-  validates :text, presence: true, length: { minimum: 10 }
+  validates :title,      presence: true, length: { minimum: 10 }
+  validates :text,       presence: true, length: { minimum: 10 }
 
   mount_uploader :news_image, NewsImageUploader
 end

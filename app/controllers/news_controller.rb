@@ -9,17 +9,15 @@ class NewsController < ApplicationController
 
   def create
     current_user.news.create!(news_params)
-    redirect_to news_index_path
+    redirect_to news_index_path, notice: t('.post_created')
   end
 
-  def edit; end
-
   def update
-    redirect_to news_path(@news) if @news.update!(news_params)
+    redirect_to news_path(@news), notice: t('.post_updated') if @news.update!(news_params)
   end
 
   def destroy
-    redirect_to news_index_path if @news.destroy!
+    redirect_to news_index_path, notice: t('.post_destroyed') if @news.destroy!
   end
 
   private

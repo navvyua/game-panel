@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to sign_in_path
+    redirect_to sign_in_path, notice: t('.signed_out')
   end
 
   private
@@ -36,17 +36,26 @@ class SessionsController < ApplicationController
   def default_create
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to root_path
+      valid_authentication(user)
     else
-      render :new
+      invalid_authencation
     end
+  end
+
+  def valid_authentication(user)
+    session[:user_id] = user.id
+    redirect_to root_path, notice: t('.signed_in')
+  end
+
+  def invalid_authencation
+    flash.now[:alert] = t('.incorrect_sign_in')
+    render :new
   end
 
   def oauth_create
     account = Account.find_by(account_params)
     account = Account.create(account_params.merge(user_params)) unless account
     session[:user_id] = account.user_id
-    redirect_to root_path
+    redirect_to root_path, notice: t('.signed_in')
   end
 end

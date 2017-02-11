@@ -5,8 +5,6 @@ class UsersController < ApplicationController
   before_action :authenticated_only, only: :show
   before_action :find_user, only: [:show, :edit, :update]
 
-  def show; end
-
   def new
     @user = User.new
   end
@@ -23,8 +21,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit; end
-
   def update
     redirect_to profile_user_path(@user) if @user.update!(user_params)
   end
@@ -37,6 +33,6 @@ class UsersController < ApplicationController
   end
 
   def find_user
-    @user = User.find(params[:id])
+    @user = User.find(params[:id]).decorate
   end
 end

@@ -34,16 +34,16 @@ section.content
           ul.list-group.list-group-unbordered
             li.list-group-item
               b = t('.first_name')
-              span.pull-right = format_user_data(@user.first_name)
+              span.pull-right = @user.format_data :first_name
             li.list-group-item
               b = t('.last_name')
-              span.pull-right = format_user_data(@user.last_name)
+              span.pull-right = @user.format_data :last_name
             li.list-group-item
               b = t('.age')
-              span.pull-right = format_user_data(@user.age)
+              span.pull-right = @user.format_data :age
             li.list-group-item
               b = t('.location')
-              span.pull-right = format_user_data(@user.location)
+              span.pull-right = @user.format_data :location
             - if @user.about
               b = t('.about_me')
               p = @user.about  

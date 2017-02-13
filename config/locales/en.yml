@@ -83,9 +83,22 @@ en:
       vehicle: Vehicle
       location: Location
       more: More
+      edit: Edit Profile
     create:
       signed_up: Successfully signed up
       incorrect_info: Incorrect information
+      edit: Edit Profile
+    edit_dialog:
+      email: Email
+      edit: Edit Profile
+      nick: Internet nick
+      first_name: First name
+      last_name: Last name
+      age: Age
+      location: Change location
+      about: Write some words about yourself !
+      submit: Submit
+      close: Close
 
   news:
     index:

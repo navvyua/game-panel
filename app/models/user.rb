@@ -9,4 +9,6 @@ class User < ApplicationRecord
   validates :name,  presence: true
 
   enum role: [:user, :helper, :admin]
+
+  mount_uploader :avatar, AvatarUploader
 end

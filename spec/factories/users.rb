@@ -16,5 +16,13 @@ FactoryGirl.define do
     trait :admin do
       role User.roles[:admin]
     end
+
+    trait :full do
+      first_name Faker::Name.first_name
+      last_name Faker::Name.last_name
+      age Faker::Number.number(2)
+      location Faker::StarWars.planet
+      about Faker::StarWars.quote
+    end
   end
 end

@@ -1,0 +1,35 @@
+#user-edit-modal.modal.fade role='dialog' 
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close data-dismiss='modal' type='button' &times;
+        h4.modal-title = t('.edit')
+      = form_for @user do |f|
+        .modal-body.box-body
+            .form-group.col-md-6
+              = f.label :email
+              = f.email_field :email, class: 'form-control', required: true, placeholder: t('.email')
+            .form-group.col-md-6
+              = f.label :internet_nick
+              = f.text_field :name, class: 'form-control', required: true, placeholder: t('.nick')
+            .form-group.col-md-6
+              = f.label :first_name
+              = f.text_field :first_name, class: 'form-control', placeholder: t('.first_name')
+            .form-group.col-md-6
+              = f.label :last_name
+              = f.text_field :last_name, class: 'form-control', placeholder: t('.last_name')
+            .form-group.col-md-6
+              = f.label :age
+              = f.number_field :age, class: 'form-control', in: 12..80, step: 1, placeholder: t('.age')
+            .form-group.col-md-6
+              = f.label :location
+              = f.text_field :location, class: 'form-control', placeholder: t('.location')
+            .form-group
+              = f.label :about
+              = f.text_area :about, class: 'form-control',rows: 5, placeholder: t('.about')
+            .form-group
+              = f.label :avatar
+              = f.file_field :avatar
+        .modal-footer
+          = f.submit t('.submit'), class: 'btn btn-primary'
+          .btn.btn-default data-dismiss='modal' type='button' = t('.close')

@@ -3,7 +3,7 @@
     .box.box-primary
       .box-header.with-border
         h4.text-center = @news.title
-        .text-muted.pull-right = news_created_label(@news)
+        .text-muted.pull-right = @news.created_label
       .box-body
         .text-center
           = image_tag(@news.news_image.big)

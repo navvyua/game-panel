@@ -19,7 +19,7 @@
           
           li.list-group-item
             b = t('.driving_license')
-            .pull-right = format_driving_license(character)
+            .pull-right = character.format_driving_license
             
           li.list-group-item
             b = t('.last_activity')
@@ -35,4 +35,4 @@
             b = t('.bank')
             .pull-right = format_money(character.bank)
         
-        = character_button(character)
+        = character.format_button

@@ -2,12 +2,12 @@ source 'https://rubygems.org'
 
 ruby '2.3.1'
 
+gem 'draper', '3.0.0.pre1'
 gem 'adminlte2assets-rails', git: 'https://github.com/wendrowycz/adminlte2assets-rails', branch: 'develop'
 gem 'figaro'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'omniauth'
-gem 'will_paginate'
 gem 'carrierwave'
 gem 'simple_form'
 gem 'slim-rails'
@@ -55,4 +55,3 @@ group :development do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-

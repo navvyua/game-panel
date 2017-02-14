@@ -16,7 +16,7 @@ section.content
           
           li.list-group-item
             b = t('.driving_license')
-            .pull-right = format_driving_license(@character)
+            .pull-right = @character.format_driving_license
           
           li.list-group-item
             b = t('.last_activity')

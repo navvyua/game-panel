@@ -5,7 +5,7 @@ class CharactersController < ApplicationController
   before_action :only_denied_character, only: [:edit, :update]
 
   def index
-    @characters = @user.characters.includes(:user)
+    @characters = @user.characters.includes(:user).decorate
   end
 
   def new
@@ -38,7 +38,7 @@ class CharactersController < ApplicationController
   end
 
   def current_resource
-    @character = @user.characters.find(params[:id])
+    @character = @user.characters.find(params[:id]).decorate
   end
 
   def character_params

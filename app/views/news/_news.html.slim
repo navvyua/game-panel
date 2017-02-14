@@ -6,5 +6,5 @@
       = link_to news_path(news) do 
         h4.text-center
           strong = news.title
-      p = slice_news_text(news.text) 
-      .box-footer.text-muted.pull-right = news_created_label(news)
+      p = news.slice_text
+      .box-footer.text-muted.pull-right = news.created_label

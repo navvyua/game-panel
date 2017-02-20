@@ -4,7 +4,7 @@ feature 'profile' do
   let(:user) { create(:user) }
   before do
     sign_in user
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user.decorate)
     visit profile_user_path(user.id)
   end
 

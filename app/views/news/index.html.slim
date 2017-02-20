@@ -1,10 +1,10 @@
-= render 'news_dialog' if current_user_admin?
+= render 'news_dialog' if current_user.admin?
 section.content-header
   .row
     .col-md-6
       h3 = t('.title')
     .col-md-6
-      - if current_user_admin?
+      - if current_user.admin?
         button.btn.btn-primary.btn-sm.pull-right.btn-flat data-target='#newsModal' data-toggle='modal' type='button'
           = fa_icon('plus', text: t('.add_news'))
           

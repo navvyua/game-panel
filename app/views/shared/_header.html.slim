@@ -16,22 +16,22 @@ header.main-header
       span.icon-bar
       
     .navbar-custom-menu
-      - if current_user
+      - if current_user.valid?
         ul.nav.navbar-nav
           li.dropdown.user.user-menu
             a.dropdown-toggle href='#' data-toggle='dropdown'
               img.img-circle.text-center
-                = image_tag(current_user.avatar.thumb, class: 'img user-image')
+                = image_tag current_user.avatar.thumb, class: 'img user-image'
               span.hidden-xs = fa_icon 'angle-down', right: true, text: current_user.name
               
             ul.dropdown-menu
               li.user-header
-                = image_tag(current_user.avatar.thumb, class: 'img-circle')
+                = image_tag current_user.avatar.thumb, class: 'img-circle'
                 
                 p
-                  = current_user_name_label
+                  = current_user.name_with_role
                   small = t('.signed_up') 
-                  small = current_user_created_label
+                  small = current_user.created_label
                   
               li.user-body
                 .row

@@ -8,7 +8,7 @@ feature 'News' do
 
     before(:each) do
       sign_in user
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user.decorate)
       visit news_index_path
     end
 
@@ -26,7 +26,6 @@ feature 'News' do
 
         scenario 'moves to chosen news page' do
           click_link news.title
-
           expect(page).to have_content(title)
         end
       end
@@ -56,7 +55,7 @@ feature 'News' do
 
     before(:each) do
       sign_in user
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user.decorate)
     end
 
     describe 'news list page' do

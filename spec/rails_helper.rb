@@ -8,6 +8,7 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/poltergeist'
+require 'capybara/email/rspec'
 require 'rspec/retry'
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }

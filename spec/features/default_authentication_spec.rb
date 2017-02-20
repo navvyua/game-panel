@@ -35,6 +35,27 @@ feature 'Default authentication' do
     end
   end
 
+  context 'test email after sign_up' do
+    before do
+      clear_emails
+      sign_up new_user
+      open_email(new_user.email)
+    end
+
+    scenario 'send email after sign_up' do
+      expect(current_email).not_to be nil
+    end
+
+    scenario 'send email with correct subject' do
+      expect(current_email.subject).to eq(I18n.t('email.welcome.subject'))
+    end
+
+    scenario 'send email with correct user credentials' do
+      expect(current_email.body).to have_content new_user.email
+      expect(current_email.body).to have_content new_user.password
+    end
+  end
+
   context 'with invalid params' do
     scenario 'user signs in' do
       sign_in new_invalid_user

@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
+      send_sign_up_email
       redirect_to profile_user_path(@user), notice: t('.signe_up')
     else
       flash.now[:alert] = t('.incorrect_info')
@@ -34,5 +35,9 @@ class UsersController < ApplicationController
 
   def find_user
     @user = User.find(params[:id]).decorate
+  end
+
+  def send_sign_up_email
+    UserMailer.welcome_email(@user, params[:user][:password]).deliver_now
   end
 end

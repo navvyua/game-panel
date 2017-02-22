@@ -42,6 +42,7 @@ group :development, :test do
   gem 'simplecov'
   gem 'rspec-retry'
   gem 'capybara'
+  gem 'capybara-email'
   gem 'faker'
   gem 'launchy'
 end

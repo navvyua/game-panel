@@ -172,3 +172,7 @@ en:
         no_validating_characters: No characters on validating
       update:
         character_validated: Character successfully validated
+
+  email:
+    welcome: 
+      subject: Welcome to Game Panel 

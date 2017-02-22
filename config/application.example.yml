@@ -1,0 +1,9 @@
+
+test:
+  gmail_username: test_username
+  mailer_host: localhost:3000
+
+production:
+  gmail_username: 
+  gmail_password: 
+   

@@ -6,6 +6,7 @@ AllCops:
     - 'bin/**/*'
     - 'vendor/**/*'
     - 'log/**/*'
+    - 'config/**/*'
     - 'Gemfile'
     - 'spec/support/**/*'
 Style/Documentation:
@@ -25,4 +26,3 @@ Style/StringLiterals:
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
-    - 'config/initializers/simple_form_bootstrap.rb'

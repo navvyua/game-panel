@@ -16,6 +16,8 @@ gem 'mini_magick'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 gem 'pundit'
+gem 'activeadmin', github: 'activeadmin'
+gem "paranoia", "~> 2.0"
 
 gem 'rails', '~> 5.0.1'
 gem 'pg', '~> 0.18'

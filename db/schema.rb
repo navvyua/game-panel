@@ -63,6 +63,16 @@ ActiveRecord::Schema.define(version: 20170301205138) do
     t.index ["user_id"], name: "index_characters_on_user_id", using: :btree
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.text     "text"
+    t.integer  "request_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["request_id"], name: "index_comments_on_request_id", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+  end
+
   create_table "components", force: :cascade do |t|
     t.integer "character_id"
     t.integer "component"
@@ -87,6 +97,17 @@ ActiveRecord::Schema.define(version: 20170301205138) do
     t.string   "news_image"
   end
 
+  create_table "requests", force: :cascade do |t|
+    t.text     "description"
+    t.boolean  "closed",      default: false
+    t.integer  "user_id"
+    t.integer  "admin_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["admin_id"], name: "index_requests_on_admin_id", using: :btree
+    t.index ["user_id"], name: "index_requests_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -107,4 +128,7 @@ ActiveRecord::Schema.define(version: 20170301205138) do
 
   add_foreign_key "accounts", "users"
   add_foreign_key "characters", "users"
+  add_foreign_key "comments", "requests"
+  add_foreign_key "comments", "users"
+  add_foreign_key "requests", "users"
 end

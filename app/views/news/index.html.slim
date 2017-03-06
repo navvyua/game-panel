@@ -12,8 +12,8 @@ section.content
   .row
     .col-md-10.col-md-offset-1
       - if @all_news.blank?
-        h1.text-center No news
+        h1.text-center.blank-border No news
       - else
         = render @all_news
       
-      .clearfix = paginate @all_news, theme: 'twitter-bootstrap-3'
+        .clearfix = paginate @all_news, theme: 'twitter-bootstrap-3'

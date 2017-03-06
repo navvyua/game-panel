@@ -1,9 +1,9 @@
 $(document).on('turbolinks:load', function() {
-  $('.notification').fadeIn('slow');
+  $('.notification').slideDown('slow');
 
   setTimeout(function() {
-    $('.notification').fadeOut('slow', function() {
+    $('.notification').slideUp('slow', function() {
       $(this).remove();
     });
-  }, 4000);
+  }, 5000);
 });

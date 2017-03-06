@@ -2,7 +2,7 @@ class Admin::CharactersController < AdminController
   before_action :current_resource, only: :update
 
   def index
-    @characters = Character.validating
+    @characters = Character.validating.decorate
   end
 
   def update

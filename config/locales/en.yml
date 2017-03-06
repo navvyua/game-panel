@@ -1,4 +1,5 @@
 en:
+  user_not_authorized: You are not authorized
   layouts:
     application:
       title: Game panel
@@ -19,8 +20,8 @@ en:
       create_character: Create character
       my_characters: My characters
       help_center: Help center
-      create_help_ticket: Create help ticket
-      my_help_tickets: My help tickets
+      create_help_request: Create help request
+      my_help_requests: My help requests
       ask_online: Ask online
       ask_online_not_available: Ask online not avaliable
       bugtracker: Bugtracker
@@ -174,5 +175,20 @@ en:
         character_validated: Character successfully validated
 
   email:
-    welcome: 
-      subject: Welcome to Game Panel 
+    welcome:
+      subject: Welcome to Game Panel
+
+  requests:
+    index:
+      dont_have_requests: You don't have requests
+      title: Help center
+    new:
+      title: Create help request
+      description: Describe your problem
+    create:
+      request_created: Request successfully created
+      incorrect_info: Incorrect information
+    show:
+      title: Help center
+      reply: Reply
+      placeholder: Type message ...

@@ -19,8 +19,8 @@ aside.main-sidebar
             span.pull-right-container = fa_icon 'angle-down', class: 'pull-right'
             
           ul.treeview-menu
-            li = link_to fa_icon('plus', text: t('.create_help_ticket'))
-            li = link_to fa_icon('list', text: t('.my_help_tickets'))
+            li = link_to fa_icon('plus', text: t('.create_help_request')), new_user_request_path(current_user)
+            li = link_to fa_icon('list', text: t('.my_help_requests')), user_requests_path(current_user)
             / - if any helper is avaliable to chat
             li = link_to fa_icon('circle-o', text: t('.ask_online'), class: 'text-green')
             / - else
@@ -35,7 +35,7 @@ aside.main-sidebar
             li = link_to fa_icon('plus', text: t('.create_bug_ticket'))
             li = link_to fa_icon('list', text: t('.my_bug_tickets'))
       
-        - unless current_user.user?
+        - if current_user.helper_or_admin?
           li.header #{current_user.role.upcase} #{t('.panel')}
           
           li 
@@ -48,7 +48,7 @@ aside.main-sidebar
             = link_to nil do
               = fa_icon('info', text: t('.help_requests'))
               span.pull-right-container
-                small.label.pull-right.bg-yellow 5
+                small.label.pull-right.bg-yellow = available_requests_count
                 
           li 
             = link_to nil do

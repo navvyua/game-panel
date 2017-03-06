@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
+  include Pundit
   protect_from_forgery with: :exception
+
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   private
 
@@ -14,7 +17,12 @@ class ApplicationController < ActionController::Base
   end
 
   def unauthenticated_only
-    redirect_back(fallback_location: profile_user_path(current_user)) if current_user.valid?
+    redirect_back(fallback_location: root_path) if current_user.valid?
+  end
+
+  def user_not_authorized
+    flash[:alert] = t 'user_not_authorized'
+    redirect_back fallback_location: root_path
   end
 
   def authenticate_admin_user!

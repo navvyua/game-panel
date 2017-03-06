@@ -1,0 +1,14 @@
+- if comment.user == comment.request.user
+  .direct-chat-msg
+    .direct-chat-info.clearfix
+      span.direct-chat-name.pull-left = comment.user.name
+      span.direct-chat-timestamp.pull-right = comment.created_at
+    = image_tag comment.user.avatar.thumb, class: 'direct-chat-img'
+    .direct-chat-text = comment.text
+- else
+  .direct-chat-msg.right
+    .direct-chat-info.clearfix
+      span.direct-chat-name.pull-right = comment.user.name
+      span.direct-chat-timestamp.pull-left = comment.created_at
+    = image_tag comment.user.avatar.thumb, class: 'direct-chat-img'
+    .direct-chat-text = comment.text

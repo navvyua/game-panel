@@ -8,12 +8,12 @@ feature 'Authentication authorization' do
 
     scenario 'moves to sign_up page' do
       visit sign_up_path
-      expect(page).to have_current_path(profile_user_path(user))
+      expect(page).to have_current_path(root_path)
     end
 
     scenario 'moves to sign_in page' do
       visit sign_in_path
-      expect(page).to have_current_path(profile_user_path(user))
+      expect(page).to have_current_path(root_path)
     end
   end
 

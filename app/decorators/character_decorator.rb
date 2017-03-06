@@ -13,6 +13,10 @@ class CharacterDecorator < Draper::Decorator
     end
   end
 
+  def full_name
+    "#{object.first_name} #{object.last_name}"
+  end
+
   private
 
   def fa_icon_success

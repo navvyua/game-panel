@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   resources :users, except: [:index, :show, :new, :destroy] do
     get 'profile', to: 'users#show', on: :member
     resources :characters, except: :delete
+    resources :requests, except: [:edit, :update] do
+      resources :comments, only: [:create, :destroy]
+    end
   end
 
   resources :news

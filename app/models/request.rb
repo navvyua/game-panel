@@ -1,6 +1,6 @@
 class Request < ApplicationRecord
-  belongs_to :user
   belongs_to :admin, class_name: 'User', required: false
+  belongs_to :user
 
   has_many :comments
 

@@ -11,7 +11,7 @@ class RequestPolicy
   end
 
   def show?
-    user_owner_only || @user == @request.admin
+    user_owner_only || user_processing_admin_only
   end
 
   def new?
@@ -34,5 +34,9 @@ class RequestPolicy
 
   def user_owner_or_admin_only
     user_owner_only || @user.admin?
+  end
+
+  def user_processing_admin_only
+    @user == @request.admin
   end
 end

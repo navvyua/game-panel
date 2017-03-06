@@ -26,3 +26,4 @@ Style/StringLiterals:
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
+    - 'app/admin/*.rb'

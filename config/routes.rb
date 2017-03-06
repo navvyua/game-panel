@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   root 'news#index'
 
   get    'sign_up',  to: 'users#new'

@@ -33,6 +33,41 @@ feature 'Help center' do
     expect(page).to have_content comment_attrs[:text]
   end
 
+  scenario 'user closes request from index' do
+    click_link I18n.t('shared.sidebar.my_help_requests')
+    click_link I18n.t('requests.request.close')
+    expect(page).to have_content I18n.t('requests.index.dont_have_requests')
+  end
+
+  scenario 'user closes request from request page' do
+    click_link I18n.t('shared.sidebar.my_help_requests')
+    click_link '#'
+    click_link I18n.t('requests.show.close')
+    expect(page).to have_content I18n.t('requests.index.dont_have_requests')
+  end
+
+  scenario 'admin processes request' do
+    click_link I18n.t('shared.sidebar.help_requests')
+    click_link I18n.t('admin.requests.request.process')
+    expect(page).to have_link I18n.t('requests.show.close')
+    click_link I18n.t('shared.sidebar.help_requests')
+    expect(page).to have_content I18n.t('admin.requests.index.processing_requests')
+  end
+
+  scenario 'admin deletes request' do
+    click_link I18n.t('shared.sidebar.help_requests')
+    click_link I18n.t('admin.requests.request.delete')
+    expect(page).to have_content I18n.t('admin.requests.index.no_available_requests')
+  end
+
+  scenario 'admin replies in request' do
+    click_link I18n.t('shared.sidebar.help_requests')
+    click_link I18n.t('admin.requests.request.process')
+    fill_in 'comment_text', with: comment_attrs[:text]
+    click_button I18n.t('requests.show.reply')
+    expect(page).to have_content comment_attrs[:text]
+  end
+
   it 'shows available requests counter for admins in sidebar' do
     expect(page).to have_content "#{I18n.t('shared.sidebar.help_requests')}1"
   end

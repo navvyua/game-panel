@@ -22,5 +22,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :characters, only: [:index, :update]
+    resources :requests, only: [:index, :update, :destroy]
   end
 end

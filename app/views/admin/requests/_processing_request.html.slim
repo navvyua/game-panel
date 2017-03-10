@@ -1,0 +1,12 @@
+tr
+  td = processing_request.id
+  td = link_to processing_request.user.name, profile_user_path(processing_request.user)
+  td = processing_request.description.truncate(70)
+  td.text-center
+    = link_to t('.reply'), [processing_request.user, processing_request],
+              class: 'btn btn-flat btn-primary btn-xs'
+    - if policy([:admin, Request]).destroy?
+      |  
+      = link_to fa_icon('trash', text: t('.delete')), admin_request_path(processing_request),
+                method: :delete, class: 'btn btn-flat btn-danger btn-xs',
+                data: { confirm: t('are_you_sure') }

@@ -2,8 +2,9 @@ section.content-header
   h1 = t('.title')
 section.content
   .row
-    .col-md-10.col-md-offset-1 
+    .col-md-10.col-md-offset-1
       - if @requests.blank?
         h2.text-center.text-muted.blank-border = t('.dont_have_requests')
-      - else 
+      - else
         = render @requests
+        .text-center = paginate @requests, theme: 'twitter-bootstrap-3'

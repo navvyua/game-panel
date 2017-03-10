@@ -1,10 +1,10 @@
 class AdminController < ApplicationController
   before_action :authenticated_only
-  before_action :admin_only
+  before_action :authorize_user
 
   private
 
-  def admin_only
-    redirect_back(fallback_location: root_path) unless current_user.admin?
+  def authorize_user
+    authorize [:admin, controller_name.classify.constantize]
   end
 end

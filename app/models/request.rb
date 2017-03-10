@@ -2,7 +2,9 @@ class Request < ApplicationRecord
   belongs_to :admin, class_name: 'User', required: false
   belongs_to :user
 
-  has_many :comments
+  has_many :comments, dependent: :delete_all
+
+  paginates_per 10
 
   validates :description, presence: true
 

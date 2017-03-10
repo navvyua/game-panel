@@ -4,7 +4,7 @@ class RequestsController < ApplicationController
 
   def index
     authorize @owner_user.requests.new
-    @requests = @owner_user.requests.includes(:user).decorate
+    @requests = @owner_user.requests.includes(:user).page(params[:page]).decorate
   end
 
   def show

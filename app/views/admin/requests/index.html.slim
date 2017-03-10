@@ -1,0 +1,16 @@
+section.content-header
+  h1 = t('.title')
+section.content
+  .row
+    .col-md-10.col-md-offset-1
+      - if @processing_requests.present?
+        = render 'requests', title: t('.processing_requests'),
+                 partial: 'processing_request', collection: @processing_requests
+
+      - if @requests.blank?
+        h2.text-center.text-muted.blank-border = t('.no_available_requests')
+      - else
+        = render 'requests', title: t('.available_requests'),
+                 partial: 'request', collection: @requests
+              
+        .text-center = paginate @requests, theme: 'twitter-bootstrap-3'

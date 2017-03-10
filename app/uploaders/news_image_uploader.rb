@@ -8,10 +8,14 @@ class NewsImageUploader < CarrierWave::Uploader::Base
   end
 
   def default_url(*_args)
-    ActionController::Base.helpers.asset_path('default_news_image.png')
+    ActionController::Base.helpers.asset_path('default_news_image.jpg')
   end
 
   version :big do
     process resize_to_fit: [600, 600]
+  end
+
+  version :thumb do
+    process resize_to_fit: [200, 200]
   end
 end

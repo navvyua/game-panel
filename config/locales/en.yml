@@ -32,10 +32,6 @@ en:
       help_requests: Help requests
       user_reports: User reports
       manager: Manager
-      users: Users
-      help_tickets: Help tickets
-      reports: Reports
-      bugs: Bugs
     footer:
       version: Version
       v_numb: ' 1.0.1'
@@ -173,6 +169,17 @@ en:
         no_validating_characters: No characters on validating
       update:
         character_validated: Character successfully validated
+    requests:
+      index:
+        title: Help requests
+        no_available_requests: No available requests
+        processing_requests: Processing requests
+      request:
+        process: Process
+        delete: Delete
+      processing_request:
+        reply: Reply
+        delete: Delete
 
   email:
     welcome:
@@ -192,3 +199,8 @@ en:
       title: Help center
       reply: Reply
       placeholder: Type message ...
+      close: Close
+    request:
+      close: Close
+
+  are_you_sure: Are you sure?

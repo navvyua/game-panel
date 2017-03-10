@@ -1,0 +1,13 @@
+.box.box-primary
+  .box-header.with-border
+    h3.box-title = title
+  .box-body
+    table.table.table-bordered.requests-table
+      thead
+        tr
+          th #
+          th = t('.author')
+          th = t('.description')
+          th
+      tbody
+        = render partial: partial, collection: collection

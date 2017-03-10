@@ -1,9 +1,9 @@
 class Admin::RequestsController < AdminController
-  before_action :set_current_request, except: :index
+  before_action :current_request, except: :index
 
   def index
-    @requests = Request.available.includes(:user).page(params[:page]).per(50)
-    @processing_requests = @current_user.processing_requests.includes(:user)
+    requests
+    processing_requests
   end
 
   def update
@@ -18,7 +18,15 @@ class Admin::RequestsController < AdminController
 
   private
 
-  def set_current_request
+  def current_request
     @request = Request.find(params[:id])
+  end
+
+  def requests
+    @requests = Request.available.includes(:user).page(params[:page]).per(50)
+  end
+
+  def processing_requests
+    @processing_requests = @current_user.processing_requests.includes(:user)
   end
 end

@@ -1,9 +1,9 @@
 .box.box-body
   .row
-    .col-md-4
-      = link_to image_tag(news.news_image, class: 'img-responsive'), news_path(news)
+    .col-md-3
+      = link_to image_tag(news.news_image.thumb), news_path(news)
     .col-md-8
-      = link_to news_path(news) do 
+      = link_to news_path(news) do
         h4.text-center
           strong = news.title
       p = news.slice_text

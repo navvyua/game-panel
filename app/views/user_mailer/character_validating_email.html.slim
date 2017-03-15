@@ -1,0 +1,10 @@
+h1.text-center = t('layouts.application.title')
+
+h2.text-center Hello #{@user.name}
+
+- if @character.denied?
+  p Your character #{@character.full_name} has been denied
+  | Reason:
+  p = @character.deny_reason
+- else
+  | Your character #{@character.full_name} has been accepted, enjoy!

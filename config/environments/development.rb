@@ -28,10 +28,5 @@ Rails.application.configure do
   end
 
   config.email_from = ENV['gmail_username']
-
-  # Please use MailCatcher for sending and viewing emails in development
-  # More information here: https://mailcatcher.me/
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = { address: 'localhost', port: 1025 }
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.delivery_method = :letter_opener
 end

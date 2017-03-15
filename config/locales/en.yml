@@ -182,6 +182,8 @@ en:
         delete: Delete
 
   email:
+    character_validating:
+      subject: Game panel - Character validating
     welcome:
       subject: Welcome to Game Panel
 

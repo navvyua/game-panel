@@ -7,6 +7,7 @@ class Admin::CharactersController < AdminController
 
   def update
     @character.update!(character_params)
+    send_validating_email
     redirect_to admin_characters_path, notice: t('.character_validated')
   end
 
@@ -18,5 +19,9 @@ class Admin::CharactersController < AdminController
 
   def current_resource
     @character = Character.find(params[:id])
+  end
+
+  def send_validating_email
+    UserMailer.character_validating_email(@character.user, @character.decorate).deliver_now
   end
 end

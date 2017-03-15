@@ -7,18 +7,38 @@ feature 'Character validation' do
 
   before { sign_in user }
 
-  scenario 'user accepts character application' do
-    click_link   I18n.t('shared.sidebar.character_validation')
-    click_button I18n.t('admin.characters.character.accept')
-    click_link   I18n.t('shared.sidebar.my_characters')
-    expect(page).to have_link(I18n.t('characters.character.more'))
+  context 'admin accepts character application' do
+    before do
+      click_link   I18n.t('shared.sidebar.character_validation')
+      click_button I18n.t('admin.characters.character.accept')
+      click_link   I18n.t('shared.sidebar.my_characters')
+    end
+
+    scenario 'user has accepted character after validation' do
+      expect(page).to have_link(I18n.t('characters.character.more'))
+    end
+
+    scenario 'user receives email after accept' do
+      open_email user.email
+      expect(current_email.body).to have_content 'has been accepted, enjoy!'
+    end
   end
 
-  scenario 'user denies character application' do
-    click_link   I18n.t('shared.sidebar.character_validation')
-    click_button I18n.t('admin.characters.character.deny')
-    click_link   I18n.t('shared.sidebar.my_characters')
-    expect(page).to have_content(I18n.t('characters.character.denied'))
+  context 'admin denies character application' do
+    before do
+      click_link   I18n.t('shared.sidebar.character_validation')
+      click_button I18n.t('admin.characters.character.deny')
+      click_link   I18n.t('shared.sidebar.my_characters')
+    end
+
+    scenario 'user has denied character after validation' do
+      expect(page).to have_content(I18n.t('characters.character.denied'))
+    end
+
+    scenario 'user receives email after denied' do
+      open_email user.email
+      expect(current_email.body).to have_content 'has been denied'
+    end
   end
 
   scenario 'user edits character application' do

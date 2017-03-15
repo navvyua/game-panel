@@ -1,0 +1,8 @@
+.text-center
+  span.label#bug_status class="label-#{bug_ticket.status_color(bug_ticket.status)}" = bug_ticket.status
+br
+.form-group.text-center
+  .btn-group data-toggle="buttons" 
+    = link_to t('.status_open'), bug_ticket_path(bug_ticket, bug_ticket: {status: 'open'} ), remote: true, method: :put, id: 'open', class: 'btn btn-sm btn-success js-bug-submit' 
+    = link_to t('.status_in_progress'), bug_ticket_path(bug_ticket, bug_ticket: {status: 'in_progress'}), remote: true, method: :put, id: 'in_progress', class: 'btn btn-sm btn-info js-bug-submit'
+    = link_to t('.status_closed'), bug_ticket_path(bug_ticket, bug_ticket: {status: 'closed'}), remote: true, method: :put, id: 'closed', class: 'btn btn-sm btn-danger js-bug-submit' 

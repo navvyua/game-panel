@@ -35,8 +35,8 @@ aside.main-sidebar
             span.pull-right-container = fa_icon 'angle-down', class: 'pull-right'
             
           ul.treeview-menu
-            li = link_to fa_icon('plus', text: t('.create_bug_ticket'))
-            li = link_to fa_icon('list', text: t('.my_bug_tickets'))
+            li = link_to fa_icon('plus', text: t('.create_bug_ticket')), new_bug_ticket_path
+            li = link_to fa_icon('list', text: t('.my_bug_tickets')), bug_tickets_path
       
         - if current_user.helper_or_admin?
           li.header #{current_user.role.upcase} #{t('.panel')}
@@ -45,14 +45,17 @@ aside.main-sidebar
             = link_to admin_characters_path do
               = fa_icon('users', text: t('.character_validation'))
               span.pull-right-container
-                small.label.pull-right.bg-blue = validating_characters_count 
-                
+                small.label.pull-right.bg-blue = validating_characters_count    
           li 
             = link_to admin_requests_path do
               = fa_icon('info', text: t('.help_requests'))
               span.pull-right-container
                 small.label.pull-right.bg-yellow = available_requests_count
-                
+          li 
+            = link_to admin_bug_tickets_path do
+              = fa_icon('bug', text: t('.bug_tickets'))
+              span.pull-right-container
+                small.label.pull-right.bg-green = open_bugs_count
           li 
             = link_to nil do
               = fa_icon('flag', text: t('.user_reports'))

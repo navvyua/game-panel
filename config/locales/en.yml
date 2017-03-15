@@ -32,6 +32,7 @@ en:
       help_requests: Help requests
       user_reports: User reports
       manager: Manager
+      bug_tickets: Bug tickets
     footer:
       version: Version
       v_numb: ' 1.0.1'
@@ -180,6 +181,15 @@ en:
       processing_request:
         reply: Reply
         delete: Delete
+    bug_tickets: 
+      index:
+        no_bugs: Users not created bugs yet 
+        bug_tickets_list: Bug tickets list
+        title: Title
+        status: Status
+        author: Author
+        created_at: Created at
+        show_btn: show
 
   email:
     character_validating:
@@ -204,5 +214,41 @@ en:
       close: Close
     request:
       close: Close
+
+  bug_tickets:
+    index: 
+      my_bugs: My bugs
+      no_bugs: You still no created any bugs
+      status: Status
+      title: Title
+      created_at: Created at
+      show_bug_btn: show
+    admin_index:
+      bug_tickets_list: Bug tickets list 
+      author: Author
+      status: Status
+      title: Title
+      created_at: Created at
+    status_form:
+      status_open: Open
+      status_in_progress: In progress
+      status_closed: Closed 
+    form: 
+      title: Title
+      description: Description and steps to reproduce
+      submit: Submit
+    edit: 
+      title: Title
+      description: Description and steps to reproduce
+    create: 
+      ticket_created: New Bug Ticket created!
+    update:
+      ticket_updated: Bug Ticket successfuly updated!
+      not_updated: Bug Ticket not updated!
+    show:
+      delete: Delete
+      to_bugs: To bugs
+    destroy: 
+      ticket_destroyed: Bug Ticket successfuly destroyed!
 
   are_you_sure: Are you sure?

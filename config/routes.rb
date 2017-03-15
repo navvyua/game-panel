@@ -19,9 +19,11 @@ Rails.application.routes.draw do
   end
 
   resources :news
+  resources :bug_tickets
 
   namespace :admin do
     resources :characters, only: [:index, :update]
     resources :requests, only: [:index, :update, :destroy]
+    resources :bug_tickets, only: [:index]
   end
 end

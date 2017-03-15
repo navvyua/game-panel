@@ -1,0 +1,25 @@
+section.content
+  .row
+    .col-md-12
+      .box.box-primary
+        .box-header.with-border
+          h4.text-center = @bug_ticket.title
+          h4.text-center
+          - if current_user.admin?
+            = render 'status_form', bug_ticket: @bug_ticket
+          - else
+            .text-center
+              span.label class="label-#{@bug_ticket.status_color(@bug_ticket.status)}" = @bug_ticket.status
+            
+          .text-muted.pull-right = @bug_ticket.created_label
+        .box-body
+          .text-center
+            = image_tag(@bug_ticket.bug_image.middle)
+          p
+          p = @bug_ticket.description
+          - if current_user.admin?
+            = link_to t('.delete'), bug_ticket_path(@bug_ticket.id), method: :delete, class: 'btn btn-danger pull-right'
+            = link_to t('.to_bugs'), admin_bug_tickets_path, class: 'btn btn-primary pull-right'
+          - else 
+            = link_to t('.to_bugs'), bug_tickets_path, class: 'btn btn-primary pull-right'
+          

@@ -1,0 +1,26 @@
+section.content-header
+  .row
+    .col-xs-12
+      .box
+        .box-header
+          h3.box-title = t('.bug_tickets_list')
+        - if @bugs.blank?
+          h3.text-center.blank-border = t('.no_bugs')
+        - else 
+          .box-body.table-responsive.no-padding
+            table.table.table-hover
+              tr
+                th = t('.author')
+                th = t('.title')
+                th = t('.status')
+                th = t('.created_at') 
+              - @bugs.each do |bug|
+                tr
+                  td = bug.user.email
+                  td = bug.title
+                  td
+                    span.label class="label-#{bug.status_color(bug.status)}" = bug.status
+                  td = bug.created_label
+                  td = link_to t('.show_btn'), bug_ticket_path(bug.id), class: 'btn btn-sm btn-primary'
+
+  .clearfix = paginate @bugs, theme: 'twitter-bootstrap-3'

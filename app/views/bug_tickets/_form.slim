@@ -1,0 +1,17 @@
+= simple_form_for bug_ticket do |f|
+  
+  .row
+    .col-md-5
+      .form-group.has-feedback
+        = f.input :title, required: true, label: false, placeholder: t('.title'), input_html: { class: 'form-control' }
+        
+      .form-group.has-feedback
+        = f.input :bug_image
+
+    .col-md-7
+      .form-group.has-feedback
+        = f.input :description, as: :text, label: false, placeholder: t('.description'),
+                  input_html: { class: 'form-control', rows: 6 }, required: true
+              
+  .text-center = f.button :submit, class: 'btn btn-flat btn-success'
+

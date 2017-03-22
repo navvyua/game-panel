@@ -1,0 +1,18 @@
+= render 'post_dialog' if current_user.admin?
+section.content-header
+  .row
+    .col-md-6
+      h1 = t('.title')
+    - if current_user.admin?
+      button.btn.btn-primary.btn-sm.pull-right.btn-flat data-target='#postModal' data-toggle='modal' type='button'
+        = fa_icon('plus', text: t('.add_post'))
+          
+section.content
+  .row
+    .col-md-10.col-md-offset-1
+      - if @all_posts.blank?
+        h1.text-center.blank-border = t('.no_posts')
+      - else
+        = render @all_posts
+      
+        .clearfix = paginate @all_posts, theme: 'twitter-bootstrap-3'

@@ -1,0 +1,10 @@
+.box.box-body
+  .row
+    .col-md-3
+      = link_to image_tag(post.post_image.thumb), post_path(post)
+    .col-md-8
+      = link_to post_path(post) do
+        h4.text-center
+          strong = post.title
+      p = post.slice_text
+      .box-footer.text-muted.pull-right = post.created_label

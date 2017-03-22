@@ -1,4 +1,4 @@
-class NewsDecorator < Draper::Decorator
+class PostDecorator < Draper::Decorator
   delegate_all
 
   def self.collection_decorator_class
@@ -10,7 +10,7 @@ class NewsDecorator < Draper::Decorator
   end
 
   def created_label
-    h.t 'news.index.posted', time: created_at, author: author
+    h.t 'post.index.posted', time: created_at, author: author
   end
 
   private

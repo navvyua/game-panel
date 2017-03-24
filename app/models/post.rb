@@ -1,4 +1,4 @@
-class News < ApplicationRecord
+class Post < ApplicationRecord
   paginates_per 10
 
   belongs_to :user
@@ -6,5 +6,5 @@ class News < ApplicationRecord
   validates :title,      presence: true, length: { minimum: 10 }
   validates :text,       presence: true, length: { minimum: 10 }
 
-  mount_uploader :news_image, NewsImageUploader
+  mount_uploader :post_image, PostImageUploader
 end

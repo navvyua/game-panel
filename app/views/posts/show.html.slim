@@ -1,0 +1,17 @@
+.row
+  .col-md-12
+    .box.box-primary
+      .box-header.with-border
+        h4.text-center = @post.title
+        .text-muted.pull-right = @post.created_label
+      .box-body
+        .text-center
+          = image_tag(@post.post_image.big)
+        p
+        p = @post.text
+        - if current_user.admin?
+          = link_to t('.delete'), post_path(@post.id), method: :delete, class: 'btn btn-danger pull-right' 
+          button.btn.btn-default.pull-right data-target='#postModal' data-toggle='modal' type='button' 
+            = t('.edit')
+
+= render 'post_dialog' 

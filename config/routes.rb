@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
-  root 'news#index'
+  root 'posts#index'
 
   get    'sign_up',  to: 'users#new'
   get    'sign_in',  to: 'sessions#new'
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :news
+  resources :posts
   resources :bug_tickets
 
   namespace :admin do

@@ -1,10 +1,10 @@
-#newsModal.modal.fade role='dialog' 
+#postModal.modal.fade role='dialog' 
   .modal-dialog
     .modal-content
       .modal-header
         button.close data-dismiss='modal' type='button' = fa_icon('times')
-        h3.modal-title = t('.add_news')
-      = simple_form_for @news do |f|
+        h3.modal-title = t('.add_post')
+      = simple_form_for @post do |f|
         .modal-body.box-body
           .form-group.has-feedback
             = f.input :title, hint: t('.minimun_10_symbols'), label: false, placeholder: t('.title'),
@@ -13,6 +13,6 @@
             = f.input :text, hint: t('.minimun_10_symbols'), label: false, placeholder: t('.text'),
                       input_html: { class: 'form-control', rows: 7 }
           .form-group.has-feedback
-            = f.input :news_image
+            = f.input :post_image
         .modal-footer
           = f.button :submit, class: 'btn btn-success btn-flat'

@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   has_many :accounts,   dependent: :delete_all
   has_many :characters, dependent: :delete_all
-  has_many :news
+  has_many :posts
   has_many :processing_requests, class_name: 'Request', foreign_key: 'admin_id',
                                  dependent: :destroy
   has_many :requests, dependent: :destroy

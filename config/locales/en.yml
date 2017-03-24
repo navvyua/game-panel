@@ -15,7 +15,7 @@ en:
       some_info: Some info
       sign_in_or_sign_up: Sign In or Sign Up
     sidebar:
-      news: News
+      posts: Posts
       characters: Characters
       create_character: Create character
       my_characters: My characters
@@ -48,7 +48,7 @@ en:
       sign_in_facebook: Sign In using Facebook
       sign_in_google: Sign In using Google
       sign_up_here: Don't have an account? Sign Up here.
-      back_to_news: Back to news blog
+      back_to_posts: Back to blog
       already_have_account: Already have an account? Sign In here.
     create:
       signed_in: Successfully signed in
@@ -98,24 +98,25 @@ en:
       submit: Submit
       close: Close
 
-  news:
+  posts:
     index:
-      title: News
+      title: Post
       posted: Posted at %{time} by %{author}
-      add_news: Add news
-      no_news: No news
-    news_dialog:
-      add_news: Add news
+      add_post: Add post
+      no_posts: No post
+    post_dialog:
+      add_post: Add post
       minimun_10_symbols: Minimum 10 symbols
       title: Title
       text: Text
-      news_image: News image
+      post_image: Post image
+      submit: submit
     show:
       delete: Delete
       edit: Edit
     tests:
       new_title: This is the new title!
-      edit_title: This is edited test news!
+      edit_title: This is edited test post!
     create:
       post_created: Post successfully created
     update:

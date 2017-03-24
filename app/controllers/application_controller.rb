@@ -26,6 +26,6 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_admin_user!
-    redirect_to news_index_path unless current_user.admin?
+    redirect_to posts_path unless current_user.admin?
   end
 end

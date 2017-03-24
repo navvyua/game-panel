@@ -1,0 +1,19 @@
+section.content-header
+  h1 = t('.title')
+section.content
+  .row
+    .col-md-6
+      - if @created_reports.blank?
+        h2.text-center.text-muted.blank-border = t('.dont_have_reports')
+      - else
+        h3.text-center = t('.created_reports')
+        = render partial: 'created_report', collection: @created_reports,
+                 as: :report
+        
+    .col-md-6
+      - if @received_reports.blank?
+        h2.text-center.text-muted.blank-border = t('.are_not_reported')
+      - else
+        h3.text-center = t('.received_reports')
+        = render partial: 'received_report', collection: @received_reports,
+                 as: :report

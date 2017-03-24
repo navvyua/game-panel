@@ -75,11 +75,12 @@ ActiveRecord::Schema.define(version: 20170322231911) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "text"
-    t.integer  "request_id"
+    t.string   "commentable_type"
+    t.integer  "commentable_id"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["request_id"], name: "index_comments_on_request_id", using: :btree
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
@@ -104,8 +105,18 @@ ActiveRecord::Schema.define(version: 20170322231911) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "image"
     t.string   "post_image"
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "description"
+    t.integer  "character_id"
+    t.json     "images"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["character_id"], name: "index_reports_on_character_id", using: :btree
+    t.index ["user_id"], name: "index_reports_on_user_id", using: :btree
   end
 
   create_table "requests", force: :cascade do |t|
@@ -139,7 +150,8 @@ ActiveRecord::Schema.define(version: 20170322231911) do
 
   add_foreign_key "accounts", "users"
   add_foreign_key "characters", "users"
-  add_foreign_key "comments", "requests"
   add_foreign_key "comments", "users"
+  add_foreign_key "reports", "characters"
+  add_foreign_key "reports", "users"
   add_foreign_key "requests", "users"
 end

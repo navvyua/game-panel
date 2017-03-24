@@ -1,0 +1,24 @@
+section.content-header
+  h1 = t('.title')
+section.content
+  .row
+    .col-md-10.col-md-offset-1
+      .box.box-primary.box-body
+        = simple_form_for [@user, @report] do |f|
+          .row
+            .col-md-3
+              = autocomplete_field_tag :character_name, '',
+                  autocomplete_character_last_name_user_reports_path,
+                  id_element: '#report_character_id', required: true,
+                  placeholder: t('.intruder_character_name'),
+                  class: 'btn-block form-control'
+                  
+              p = f.input :images, as: :file, input_html: { multiple: true },
+                          class: 'form-control'
+                
+            .col-md-9
+              = f.input :description, label: false, placeholder: t('.description'),
+                        input_html: { class: 'form-control', rows: 6 }
+                
+          .text-center
+            = f.button :submit, class: 'btn btn-flat btn-success'

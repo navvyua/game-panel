@@ -1,0 +1,12 @@
+tr
+  td = report.id
+  td = link_to report.user.name, profile_user_path(report.user)
+  td = report.description.truncate(70)
+  td.text-center
+    = link_to t('.show'), [report.user, report],
+              class: 'btn btn-flat btn-primary btn-xs'
+    - if policy([:admin, Report]).destroy?
+      |  
+      = link_to fa_icon('trash', text: t('.delete')), admin_report_path(report),
+                method: :delete, class: 'btn btn-flat btn-danger btn-xs',
+                data: { confirm: t('are_you_sure') }

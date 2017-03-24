@@ -1,4 +1,4 @@
-- if comment.user == comment.request.user
+- if comment.user == comment.commentable.user
   .direct-chat-msg
     .direct-chat-info.clearfix
       span.direct-chat-name.pull-left = comment.user.name

@@ -1,0 +1,8 @@
+.row
+  .col-xs-8.col-xs-offset-2
+    .info-box
+      span.info-box-icon.bg-yellow = fa_icon 'flag'
+      .info-box-content
+        span.info-box-text
+          = link_to report.label, [report.user, report]
+        span.info-box-number = report.description.truncate(100)

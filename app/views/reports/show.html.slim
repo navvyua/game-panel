@@ -1,0 +1,41 @@
+section.content-header
+  h1 = t('.title')
+section.content
+  .row
+    .col-md-10.col-md-offset-1
+        .box.box-primary.direct-chat.direct-chat-primary
+          .box-header.with-border
+            h3.box-title = t('.big_label', id: @report.id,
+                                           author: @report.user.name,
+                                           reciever: @report.character.full_name)
+                                           
+          
+          - if @report.images.present?
+            .box-header.with-border
+              - @report.images.each do |image|
+                = link_to image.url do
+                  = image_tag image.preview, class: 'img-thumbnail'
+          
+          .box-body
+            .direct-chat-messages
+              .direct-chat-msg
+                .direct-chat-info.clearfix
+                  span.direct-chat-name.pull-left = @user.name
+                  span.direct-chat-timestamp.pull-right = @report.created_at
+                = image_tag @user.avatar.thumb, class: 'direct-chat-img'
+                .direct-chat-text = @report.description
+              
+              = render @report.comments.reverse_order.includes(:user, :commentable)
+              
+          .box-footer
+            = simple_form_for [@user, @report, Comment.new] do |f|
+              = f.hidden_field :user_id, value: current_user.id
+              
+              .input-group.full-width
+                = f.input :text, label: false, placeholder: t('.placeholder'),
+                          input_html: { class: 'form-control', rows: 6 },
+                          required: false
+                          
+              br.text-center
+                = f.button :submit, t('.reply'),
+                           class: 'btn btn-primary btn-flat btn-block'

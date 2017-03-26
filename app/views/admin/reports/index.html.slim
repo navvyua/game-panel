@@ -1,0 +1,23 @@
+section.content-header
+  h1 = t('.title')
+section.content
+  .row
+    .col-md-10.col-md-offset-1
+      - if @reports.blank?
+        h2.text-center.text-muted.blank-border = t('.no_reports')
+      - else
+        .box.box-primary
+          .box-header.with-border
+            h3.box-title = t('.opened_reports')
+          .box-body
+            table.table.table-bordered.requests-table
+              thead
+                tr
+                  th #
+                  th = t('.author')
+                  th = t('.description')
+                  th
+              tbody
+                = render @reports
+
+        .text-center = paginate @reports, theme: 'twitter-bootstrap-3'

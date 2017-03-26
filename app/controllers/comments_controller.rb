@@ -1,33 +1,35 @@
 class CommentsController < ApplicationController
-  before_action :current_resource_user
-  before_action :current_resource_owner
-  before_action :current_resource, only: :destroy
+  before_action :current_commentable
 
   def create
-    @request.comments.create(comment_params)
-    redirect_to [@user, @request]
+    @commentable.comments.create!(comment_params)
+    redirect_to [@commentable.user, @commentable]
   end
 
   def destroy
-    @comment.destroy
-    redirect_to user_requests_path @user
+    comment = @commentable.comments.find(params[:id])
+    comment.destroy
+    redirect_to [@commentable.user, @commentable]
   end
 
   private
 
-  def current_resource_user
-    @user = User.find(params[:user_id])
-  end
-
-  def current_resource_owner
-    @request = @user.requests.find(params[:request_id])
-  end
-
-  def current_resource
-    @comment = @request.comments.find(params[:id])
+  def current_commentable
+    @commentable = if params[:request_id]
+                     Request.find(params[:request_id])
+                   elsif params[:report_id]
+                     Report.find(params[:report_id])
+                   end
   end
 
   def comment_params
-    params.require(:comment).permit(:text, :user_id)
+    params.require(:comment).permit permitted_params
+  end
+
+  def permitted_params
+    [
+      :text,
+      :user_id
+    ]
   end
 end

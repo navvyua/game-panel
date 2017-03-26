@@ -22,7 +22,7 @@ section.content
                 = image_tag @request.user.avatar.thumb, class: 'direct-chat-img'
                 .direct-chat-text = @request.description
               
-              = render @request.comments.includes(:user, :request)
+              = render @request.comments.includes(:user, :commentable)
               
           .box-footer
             = simple_form_for [@request.user, @request, Comment.new] do |f|

@@ -33,6 +33,9 @@ en:
       user_reports: User reports
       manager: Manager
       bug_tickets: Bug tickets
+      reports: Reports
+      create_report: Create report
+      my_reports: My reports
     footer:
       version: Version
       v_numb: ' 1.0.1'
@@ -155,6 +158,13 @@ en:
     incorrect_info: Incorrect information
 
   admin:
+    reports:
+      index:
+        opened_reports: Opened reports
+        title: Reports
+      report:
+        show: Show
+        delete: Delete
     characters:
       character:
         accept: Accept
@@ -182,9 +192,9 @@ en:
       processing_request:
         reply: Reply
         delete: Delete
-    bug_tickets: 
+    bug_tickets:
       index:
-        no_bugs: Users not created bugs yet 
+        no_bugs: Users not created bugs yet
         bug_tickets_list: Bug tickets list
         title: Title
         status: Status
@@ -217,7 +227,7 @@ en:
       close: Close
 
   bug_tickets:
-    index: 
+    index:
       my_bugs: My bugs
       no_bugs: You still no created any bugs
       status: Status
@@ -225,7 +235,7 @@ en:
       created_at: Created at
       show_bug_btn: show
     admin_index:
-      bug_tickets_list: Bug tickets list 
+      bug_tickets_list: Bug tickets list
       author: Author
       status: Status
       title: Title
@@ -233,23 +243,44 @@ en:
     status_form:
       status_open: Open
       status_in_progress: In progress
-      status_closed: Closed 
-    form: 
+      status_closed: Closed
+    form:
       title: Title
       description: Description and steps to reproduce
       submit: Submit
-    edit: 
+    edit:
       title: Title
       description: Description and steps to reproduce
-    create: 
+    create:
       ticket_created: New Bug Ticket created!
     update:
-      ticket_updated: Bug Ticket successfuly updated!
+      ticket_updated: Bug Ticket successfully updated!
       not_updated: Bug Ticket not updated!
     show:
       delete: Delete
       to_bugs: To bugs
-    destroy: 
-      ticket_destroyed: Bug Ticket successfuly destroyed!
+    destroy:
+      ticket_destroyed: Bug Ticket successfully destroyed!
 
   are_you_sure: Are you sure?
+
+  reports:
+    index:
+      title: Reports
+      dont_have_reports: You don't have created reports
+      are_not_reported: You don't have received reports
+      created_reports: Created reports
+      received_reports: Received reports
+    new:
+      title: Create report
+      prompt: Select the character you are report
+      intruder_character_name: Intruder character name
+      description: Description of situation
+    create:
+      incorrect_character: Incorrect character
+      report_created: Report successfully created
+    show:
+      title: Report
+      reply: Reply
+      placeholder: Type message ...
+      big_label: 'Report #%{id} from %{author} on %{reciever}'

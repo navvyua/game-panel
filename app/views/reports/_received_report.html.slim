@@ -1,0 +1,8 @@
+.row
+  .col-xs-8.col-xs-offset-2
+    .info-box
+      span.info-box-icon.bg-red = fa_icon 'exclamation-circle'
+      .info-box-content
+        span.info-box-text
+          = link_to report.label, [report.user, report]
+        span.info-box-number = report.description.truncate(100)

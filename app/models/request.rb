@@ -2,7 +2,7 @@ class Request < ApplicationRecord
   belongs_to :admin, class_name: 'User', required: false
   belongs_to :user
 
-  has_many :comments, dependent: :delete_all
+  has_many :comments, as: :commentable, dependent: :delete_all
 
   paginates_per 10
 

@@ -1,6 +1,6 @@
 class Report < ApplicationRecord
-  belongs_to :user
   belongs_to :character
+  belongs_to :user
 
   has_many :comments, as: :commentable, dependent: :delete_all
 

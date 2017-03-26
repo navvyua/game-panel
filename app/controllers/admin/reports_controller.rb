@@ -5,7 +5,7 @@ class Admin::ReportsController < AdminController
 
   def destroy
     report = Report.find params[:id]
-    report.destroy
+    report.destroy!
 
     redirect_to admin_reports_path
   end

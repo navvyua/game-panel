@@ -3,8 +3,8 @@ class ReportsController < ApplicationController
   before_action :current_report, only: [:show, :destroy]
 
   def index
-    @created_reports = @user.reports.includes(:user).decorate
-    @received_reports = @user.received_reports.includes(:user).decorate
+    created_reports
+    received_reports
   end
 
   def new
@@ -25,7 +25,7 @@ class ReportsController < ApplicationController
   end
 
   def destroy
-    @report.destroy
+    @report.destroy!
     redirect_to user_reports_path @user
   end
 
@@ -38,6 +38,14 @@ class ReportsController < ApplicationController
   end
 
   private
+
+  def received_reports
+    @received_reports = @user.received_reports.includes(:user).decorate
+  end
+
+  def created_reports
+    @created_reports = @user.reports.includes(:user).decorate
+  end
 
   def character_hash(character)
     {

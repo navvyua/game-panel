@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :current_commentable
 
   def create
-    @commentable.comments.create(comment_params)
+    @commentable.comments.create!(comment_params)
     redirect_to [@commentable.user, @commentable]
   end
 

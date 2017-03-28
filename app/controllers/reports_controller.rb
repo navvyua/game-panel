@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
   before_action :current_report_user
-  before_action :current_report, only: [:show, :destroy]
+  before_action :current_report, only: %i(show destroy)
 
   def index
     created_reports

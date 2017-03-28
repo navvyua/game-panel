@@ -8,7 +8,7 @@ class BugTicket < ApplicationRecord
 
   mount_uploader :bug_image, BugImageUploader
 
-  enum status: [:open, :in_progress, :closed]
+  enum status: %i(open in_progress closed)
 
   scope :all_open_count, -> { where(status: 0).count }
 end

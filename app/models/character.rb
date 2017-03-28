@@ -10,7 +10,7 @@ class Character < ApplicationRecord
     less_than: 100
   }
 
-  enum status: [:validating, :denied, :validated, :banned]
+  enum status: %i(validating denied validated banned)
 
   acts_as_paranoid
 

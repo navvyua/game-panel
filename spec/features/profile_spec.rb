@@ -12,12 +12,13 @@ feature 'profile' do
     let(:user_attrs) { attributes_for(:user, :full) }
 
     scenario 'user update profile' do
-      basic_fields = %i(email name first_name last_name age location about)
+      basic_fields = %i(email name first_name last_name age about)
 
       click_button I18n.t('users.edit_dialog.edit')
       basic_fields.each do |field|
         fill_in "user[#{field}]", with: user[field]
       end
+      page.select 'Georgia', from: 'user[location]'
       attach_file('user[avatar]', "#{Rails.root}/spec/support/images/test_image.png")
       click_button I18n.t('users.edit_dialog.submit')
 

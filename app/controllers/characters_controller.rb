@@ -1,8 +1,8 @@
 class CharactersController < ApplicationController
   before_action :current_resource_owner
-  before_action :current_resource, only: [:show, :edit, :update]
+  before_action :current_resource, only: %i(show edit update)
   before_action :only_validated_character, only: :show
-  before_action :only_denied_character, only: [:edit, :update]
+  before_action :only_denied_character, only: %i(edit update)
 
   def index
     @characters = @user.characters.includes(:user).decorate

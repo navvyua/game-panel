@@ -23,10 +23,13 @@
               = f.number_field :age, class: 'form-control', in: 12..80, step: 1, placeholder: t('.age')
             .form-group.col-md-6
               = f.label :location
-              = f.text_field :location, class: 'form-control', placeholder: t('.location')
+              = f.country_select :location, 
+                                 priority_countries = ['UA', 'GB', 'JP'], 
+                                 options = {}, 
+                                 html_options = { class: 'form-control' }
             .form-group
               = f.label :about
-              = f.text_area :about, class: 'form-control',rows: 5, placeholder: t('.about')
+              = f.text_area :about, class: 'form-control', rows: 5, placeholder: t('.about')
             .form-group
               = f.label :avatar
               = f.file_field :avatar

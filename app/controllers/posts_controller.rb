@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :find_post, only: [:edit, :update, :show, :destroy]
+  before_action :find_post, only: %i(edit update show destroy)
   before_action :authenticated_only, except: :index
 
   def index

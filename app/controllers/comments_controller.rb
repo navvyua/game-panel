@@ -27,9 +27,9 @@ class CommentsController < ApplicationController
   end
 
   def permitted_params
-    [
-      :text,
-      :user_id
-    ]
+    %i(
+      text
+      user_id
+    )
   end
 end

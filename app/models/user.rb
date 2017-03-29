@@ -15,7 +15,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :name,  presence: true
 
-  enum role: [:user, :helper, :admin]
+  enum role: %i(user helper admin)
 
   mount_uploader :avatar, AvatarUploader
 

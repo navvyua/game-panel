@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
   before_action :current_resource_owner
-  before_action :current_resource, only: [:show, :destroy]
+  before_action :current_resource, only: %i(show destroy)
 
   def index
     authorize @owner_user.requests.new

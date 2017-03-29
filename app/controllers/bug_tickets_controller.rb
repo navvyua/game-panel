@@ -1,6 +1,6 @@
 class BugTicketsController < ApplicationController
   before_action :authenticated_only
-  before_action :find_ticket, only: [:edit, :update, :show, :destroy]
+  before_action :find_ticket, only: %i(edit update show destroy)
 
   def index
     @user_bug_tickets = bug_tickets.decorate

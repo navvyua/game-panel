@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   layout 'authentication'
 
-  before_action :unauthenticated_only, only: [:new, :create]
+  before_action :unauthenticated_only, only: %i(new create)
   before_action :authenticated_only, only: :destroy
 
   def create

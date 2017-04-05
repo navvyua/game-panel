@@ -281,6 +281,9 @@ en:
       report_created: Report successfully created
     show:
       title: Report
+      big_label: 'Report #%{id} from %{author} on %{reciever}'
+
+  comments:
+    new:
       reply: Reply
       placeholder: Type message ...
-      big_label: 'Report #%{id} from %{author} on %{reciever}'

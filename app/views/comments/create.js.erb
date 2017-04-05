@@ -1,0 +1,5 @@
+$('#new_comment')
+  .replaceWith(
+    `<%= j render "comments/new", user:        @commentable.user,
+                                  commentable: @commentable %>`
+  );

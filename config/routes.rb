@@ -31,4 +31,6 @@ Rails.application.routes.draw do
     resources :bug_tickets, only: [:index]
     resources :reports,     only: [:index, :destroy]
   end
+
+  mount ActionCable.server => '/cable'
 end

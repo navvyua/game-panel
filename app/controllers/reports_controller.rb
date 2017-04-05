@@ -7,6 +7,10 @@ class ReportsController < ApplicationController
     received_reports
   end
 
+  def show
+    @comments = @report.comments.order(:updated_at).includes(:user, :commentable)
+  end
+
   def new
     @report = @user.reports.new
   end

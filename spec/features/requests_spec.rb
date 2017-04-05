@@ -28,13 +28,6 @@ feature 'Help center' do
   describe 'user side' do
     before { click_link I18n.t('shared.sidebar.my_help_requests') }
 
-    scenario 'user replies in request' do
-      click_link '#'
-      fill_in 'comment_text', with: comment_attrs[:text]
-      click_button I18n.t('requests.show.reply')
-      expect(page).to have_content comment_attrs[:text]
-    end
-
     scenario 'user closes request from index' do
       click_link I18n.t('requests.request.close')
       expect(page).to have_content I18n.t('requests.index.dont_have_requests')
@@ -64,13 +57,6 @@ feature 'Help center' do
     scenario 'admin deletes request' do
       click_link I18n.t('admin.requests.request.delete')
       expect(page).to have_content I18n.t('admin.requests.index.no_available_requests')
-    end
-
-    scenario 'admin replies in request' do
-      click_link I18n.t('admin.requests.request.process')
-      fill_in 'comment_text', with: comment_attrs[:text]
-      click_button I18n.t('requests.show.reply')
-      expect(page).to have_content comment_attrs[:text]
     end
   end
 

@@ -3,7 +3,6 @@ class CommentsController < ApplicationController
 
   def create
     @commentable.comments.create!(comment_params)
-    redirect_to [@commentable.user, @commentable]
   end
 
   def destroy

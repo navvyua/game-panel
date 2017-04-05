@@ -35,17 +35,6 @@ feature 'Reports' do
         expect(page).to have_content I18n.t('reports.new.title')
       end
     end
-
-    scenario 'replies in report' do
-      click_link I18n.t('shared.sidebar.my_reports')
-      click_link '#'
-
-      fill_in 'comment_text', with: comment_attrs[:text]
-
-      click_button I18n.t('reports.show.reply')
-
-      expect(page).to have_content comment_attrs[:text]
-    end
   end
 
   describe 'admin' do
@@ -56,16 +45,6 @@ feature 'Reports' do
 
       scenario 'has opened reports in admin reports page' do
         expect(page).to have_link I18n.t('admin.reports.report.show')
-      end
-
-      scenario 'replies in report' do
-        click_link I18n.t('admin.reports.report.show')
-
-        fill_in 'comment_text', with: comment_attrs[:text]
-
-        click_button I18n.t('reports.show.reply')
-
-        expect(page).to have_content comment_attrs[:text]
       end
 
       scenario 'deletes report' do

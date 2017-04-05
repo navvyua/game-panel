@@ -25,17 +25,10 @@ section.content
                 = image_tag @user.avatar.thumb, class: 'direct-chat-img'
                 .direct-chat-text = @report.description
               
-              = render @report.comments.reverse_order.includes(:user, :commentable)
+              #comments data-commentable-id=@report.id data-commentable-type='Report'
+
+                = render @comments
               
           .box-footer
-            = simple_form_for [@user, @report, Comment.new] do |f|
-              = f.hidden_field :user_id, value: current_user.id
-              
-              .input-group.full-width
-                = f.input :text, label: false, placeholder: t('.placeholder'),
-                          input_html: { class: 'form-control', rows: 6 },
-                          required: false
-                          
-              br.text-center
-                = f.button :submit, t('.reply'),
-                           class: 'btn btn-primary btn-flat btn-block'
+            #new_comment
+              = render 'comments/new', user: @report.user, commentable: @report

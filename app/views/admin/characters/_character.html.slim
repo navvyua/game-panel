@@ -1,6 +1,6 @@
 = render 'deny_modal', character: character
 
-.box.box-primary
+.box.box-primary data-character-id=character.id
   .box-body.box-profile
     = render 'shared/character_deny_reason', character: character if character.deny_reason.present?
   
@@ -23,7 +23,7 @@
           = t('.deny')
           
       .col-md-6
-        = simple_form_for character, url: admin_character_path(character) do |f|
+        = simple_form_for character, url: admin_character_path(character), remote: true do |f|
           = f.hidden_field :status,      value: :validated
           = f.hidden_field :deny_reason, value: nil
           = f.button :submit, t('.accept'), class: 'btn btn-success btn-flat btn-block',

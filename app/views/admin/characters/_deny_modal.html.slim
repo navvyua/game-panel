@@ -1,11 +1,11 @@
-#denyModal.modal.fade role='dialog' 
+#denyModal.modal.fade role='dialog' data-character-id=character.id
   .modal-dialog
     .modal-content
       .modal-header
         button.close data-dismiss='modal' type='button' = fa_icon('times')
         h3.modal-title = t('.deny_application')
       
-      = simple_form_for character, url: admin_character_path(character) do |f|
+      = simple_form_for character, url: admin_character_path(character), remote: true do |f|
         = f.hidden_field :status, value: :denied
         .modal-body.box-body
           .form-group.has-feedback

@@ -1,0 +1,8 @@
+$('[data-character-id="<%= @character.id %>"]')
+  .fadeOut('slow', function() {
+    this.remove();
+  });
+
+$('.modal-backdrop').fadeOut('slow', function() {
+  this.remove();
+});

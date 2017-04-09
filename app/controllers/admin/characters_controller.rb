@@ -8,7 +8,7 @@ class Admin::CharactersController < AdminController
   def update
     @character.update!(character_params)
     send_validating_email
-    redirect_to admin_characters_path, notice: t('.character_validated')
+    process_action_cable
   end
 
   private
@@ -23,5 +23,9 @@ class Admin::CharactersController < AdminController
 
   def send_validating_email
     UserMailer.character_validating_email(@character.user, @character.decorate).deliver_now
+  end
+
+  def process_action_cable
+    RemoveCharacterJob.perform_later @character
   end
 end
